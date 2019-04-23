@@ -1,0 +1,14 @@
+query($id: Int!){
+ imagem(id:$id){
+  ramo
+  cidade
+  telefone
+  estado
+  logradouro
+  descricao
+  category{
+    id
+    name
+  }
+	}
+}

@@ -1,0 +1,18 @@
+query($id: Int!){
+  imageForUserId(user_id:$id){
+    id
+    imagem
+    ramo
+  	cidade
+  	estado
+  	descricao
+  	logradouro
+  	user{
+      id
+      name
+    }
+  	category{
+      name
+    }
+  }
+}

@@ -1,0 +1,9 @@
+query($id: Int!){
+  client(id:$id){
+	cidade
+    estado
+    logradouro
+    telefone
+  }
+
+}

@@ -1,0 +1,16 @@
+mutation(
+    $name: String!
+    $email: String!
+    $password: String!
+){
+  createUser(
+    name: $name, 
+    email: $email, 
+    password: $password, 
+    status:1
+  ){
+   	id
+    name
+    email
+  }
+}

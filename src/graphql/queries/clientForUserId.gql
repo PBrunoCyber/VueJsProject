@@ -1,0 +1,13 @@
+query($user_id: Int!){
+ clientForUserId(user_id:$user_id){
+    id
+    cidade
+    estado
+    telefone
+  	logradouro
+    imagem
+    user{
+      name
+    }
+  }
+}
