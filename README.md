@@ -1,4 +1,8 @@
-# teste
+# Vue js front end using backend in laravel. 
+
+## This is a software for self-employed professionals
+
+### You have to create a project vue cli before cloning this project
 
 ## Project setup
 ```
