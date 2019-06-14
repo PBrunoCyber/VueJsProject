@@ -1,0 +1,19 @@
+
+query
+($user_avaliado:Int!)
+{
+  avaliacaoForAvaliadoId(user_avaliado:$user_avaliado){
+    titulo
+    date
+    estrela
+    recomenda
+    descricao
+    user_avalia{
+      id
+      imagem
+      user{
+        name
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+
+.overlay5 {
+    margin-top: -4px;
+  }
+  /*Esconde a dive de classe Overlay caso seja identificado que o width Mobile maximo deseja igual ou menor que 980px*/
+  @media only screen and (max-width: 1086px) {
+    .overlay5 {
+      display: none;
+    }
+  }
+  
+  
+.overlay7 {
+  margin-top: -4px;
+}
+/*Esconde a dive de classe Overlay caso seja identificado que o width Mobile maximo deseja igual ou menor que 980px*/
+@media only screen and (max-width: 1300px) {
+  .overlay7 {
+    display: none;
+  }
+}
+
+.overlay1 {
+  margin-top: -4px;
+}
+/*Esconde a dive de classe Overlay caso seja identificado que o width Mobile maximo deseja igual ou menor que 980px*/
+@media only screen and (min-width: 1300px) {
+  .overlay1 {
+    display: none;
+  }
+}
+
+  .overlay6 {
+    margin-top: -4px;
+  }
+  /*Esconde a dive de classe Overlay caso seja identificado que o width Mobile maximo deseja igual ou menor que 980px*/
+  @media only screen and (min-width: 1086px) {
+    .overlay6 {
+      display: none;
+    }
+  }
+  
+  .sidenav {
+    width: 0;
+    z-index: 1;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+  }
+  
+  .sidenav .closebtn {
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left:60px;
+  }
+  
+  .sidenavCelular {
+    height: 400%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 0;
+    bottom: 0;
+    background: rgb(233, 255, 246) !important;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenavCelular .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {
+      padding-top: 15px;
+    }
+    .sidenavCelular {
+      padding-top: 15px;
+    }
+  }
+
+  .b {
+    color: black;
+  }
+  
+  .b:hover {
+    color: hsl(162, 100%, 41%);
+    font-size: 13pt;
+    font-weight: bold;
+  }

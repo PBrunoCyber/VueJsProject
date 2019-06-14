@@ -1,0 +1,20 @@
+mutation
+(
+    $reply: String!
+    $date:String
+    $user_envia_id:Int!
+    $user_recebe_id:Int!
+    $mensagem_id:Int!
+)
+{
+  createResposta
+  ( 
+  	reply:$reply,
+    date:$date,
+    user_envia_id:$user_envia_id,
+    user_recebe_id:$user_recebe_id,
+    mensagem_id:$mensagem_id
+  ){
+    id
+  }
+}

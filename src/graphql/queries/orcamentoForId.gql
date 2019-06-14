@@ -1,0 +1,34 @@
+
+query($id: Int!){
+  orcamento(id:$id){
+    id
+    data
+    horaFim
+    horaInicio
+    date
+    descricao
+    proposta{
+      id
+      titulo
+      valor
+      local
+      descricao
+      tipo
+      status
+      finalizar
+      user_recebe{
+        id
+        imagem
+        telefone
+        cidade
+        estado
+        logradouro
+        user{
+          id
+					name
+          email
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+mutation
+(
+    $id: ID!
+    $status: Int!
+)
+{
+	updatePropostaForCategory2
+  (
+    id:$id,
+    status:$status
+  ){
+    id
+  }
+}

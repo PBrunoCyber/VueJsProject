@@ -1,29 +1,85 @@
-<template>
+<template >
   <div class="registerCli">
+    <br>
     <div class="container">
-        <div class="card-content">
-          <h1 class="title is-3">CADASTRE-SE PARA SER CLIENTE!</h1><br>
-          <footer class="card-footer column">
+          <br>
+          <div class="columns">
+          <div class="column is-4-desktop is-offset-1-desktop is-full-mobile" style="background:hsl(171, 100%, 41%);border-radius:5px;">
+             <div class="overlay"></div>
+             <div class="column" align="center">
+                 <div class="text-white" style="font-size:25pt"><b>Já se cadastrou?</b></div>
+                <div class="text-white" style="font-size:18pt">Faça o login e entre na plataforma!</div><br>
+                <router-link
+                  :to="`/login`"
+                ><button class="btn1 column is-10-desktop is-10-tablet is-6-mobile" style="border-radius:15px">Login</button></router-link>
+             </div>
+          </div>
+          <div class="column is-6-desktop box">
+            <div class="column "><br>  
+            <h1 class="title is-4 column is-12-desktop is-8-tablet" style="color:hsl(171, 100%, 41%)" align="center"><b>CADASTRE-SE PARA SER CLIENTE</b></h1>
+             <div v-if="notification" style="margin-bottom:5px">
+              <div class="notification is-danger column is-12-desktop  is-full-mobile">
+                {{this.notification}}
+                <a class="delete" @click.prevent="muda"></a>
+              </div>
+            </div>
+            <div v-if="emailRepetido" style="margin-bottom:5px">
+              <div class="notification is-danger column is-12-desktop  is-full-mobile">
+                {{this.emailRepetido}}
+                <a class="delete" @click.prevent="muda"></a>
+              </div>
+            </div>
+            <div v-if="nomeMinimo" style="margin-bottom:5px">
+              <div class="notification is-danger column is-12-desktop is-full-mobile">
+                {{this.nomeMinimo}}
+                <a class="delete" @click.prevent="muda"></a>
+              </div>
+            </div>
+            <div v-if="senhaMinima" style="margin-bottom:5px">
+              <div class="notification is-danger column is-12-desktop is-full-mobile">
+                {{this.senhaMinima}}
+                <a class="delete" @click.prevent="muda"></a>
+              </div>
+            </div>
+            <div class="card-footer"></div><br>
             <form action="" method="POST" @submit.prevent="register">
-              <div class="control column is-6 is-offset-3">
-                  <label for="name" class="label"><b>Digite seu nome</b></label>
+              <div class="control column is-12-desktop">
+                  <div class="columns is-mobile" style="margin-left:0px">
+                    <label for="name"><b>Digite seu nome</b></label>
+                    <span v-if="!name" style="color:red;margin-left:10px"><b>*</b></span>
+                  </div>
                   <input  class="input inpu" type="text" v-model="name" name="name" id="name" placeholder="Ex: John Wick">
               </div>
-              <div class="control column is-6 is-offset-3">
-                  <label for="email" class="label"><b>Digite seu email</b></label>
+              <div class="control column is-12-desktop">
+                  <div class="columns is-mobile" style="margin-left:0px">
+                    <label for="email" ><b>Digite seu email</b></label>
+                    <span v-if="!email" style="color:red;margin-left:10px"><b>*</b></span>
+                  </div>
                   <input class="input inpu" type="email" v-model="email" name="email" id="email" placeholder="exemple@example.com">
               </div>
-              <div class="control column is-6 is-offset-3">
-                  <label for="password" class="label"><b>Digite sua senha</b></label> 
+              <div class="control column is-12-desktop">
+                  <div class="columns is-mobile" style="margin-left:0px">
+                    <label for="senha"><b>Digite sua senha</b></label>
+                    <span v-if="!password"  style="color:red;margin-left:10px"><b>*</b></span>
+                  </div> 
                   <input class="input inpu" type="password" v-model="password" name="password" id="password" placeholder="**************">
               </div>
-              <div class="control column ">
-                  <button type="submit" class="column btn-5 is-6 is-full-mobile is-offset-3">Registrar</button>
+              <div class="control column" align="center">
+                  <button type="submit" class="column btn2 is-6-desktop is-offset-3 is-full-mobile">Registrar</button>
               </div>
             </form>
-          </footer>
-        </div>       
-    </div>
+          </div>
+          </div>
+          </div>
+    </div><br><br><br><br><br><br><br><br>
+    <footer class="footer" style="background:hsl(171, 100%, 41%);font-family: 'Francois One', sans-serif">
+        <div class="content has-text-centered">
+          <p class="font" style="font-size:18pt">
+             Software para cadastro de profissionais autônomos. 
+          </p><p>The website content is licensed</p>
+          <p>© Site feito para o WTCS 2019</p>
+        </div>
+    </footer>
   </div>
 </template>
 <script>
@@ -34,11 +90,25 @@ export default {
         return{
             name: '',
             email:'',
-            password:''
+            password:'',
+            notification:"",
+            emailRepetido:"",
+            nomeMinimo:"",
+            senhaMinima:""
         }
     },
     methods: {
+        muda(){
+          this.notification = "",
+          this.emailRepetido = "",
+          this.nomeMinimo = "",
+          this.senhaMinima = ""
+        },
         register() {
+          if(!this.name || !this.email || !this.password){
+            this.notification = "Opps preencha o formulário corretamente"
+          }
+          else{
             this.$apollo.mutate({
             mutation: addClient,
             variables: {
@@ -50,9 +120,23 @@ export default {
                 alert('Muito bem agora faça o login!');
                 this.$router.push('/login');
             }).catch((error) => {
-                console.error(error);
-                alert('Houve algum erro no registro!');
+                if(error.graphQLErrors.map(message=>this.emailRepetido = message.extensions.validation.email)){
+                    if (this.emailRepetido) {
+                      this.emailRepetido = "Esse email já foi cadastrado!"
+                    }
+                }
+                if(error.graphQLErrors.map(message=>this.nomeMinimo = message.extensions.validation.name)){
+                  if (this.nomeMinimo) {
+                    this.nomeMinimo = "O nome precisa de no mínimo 4 caracteres!"
+                  }
+                }
+                if(error.graphQLErrors.map(message=>this.senhaMinima = message.extensions.validation.password)){
+                  if (this.senhaMinima) {
+                    this.senhaMinima = "A senha precisa de no mínimo 4 caracteres!"
+                  }
+                }
             })
+          }
         }
     }
 }
@@ -73,4 +157,17 @@ export default {
 .inpu:focus {
   border: 3px solid lightseagreen;
 }
+
+.text-white{
+  color:white;
+}
+
+.overlay { 
+  margin-top:10em;
+}
+    /*Esconde a dive de classe Overlay caso seja identificado que o width Mobile maximo deseja igual ou menor que 980px*/
+    @media only screen and (max-width: 768px){
+        .overlay { display: none; }
+    }
+
 </style>

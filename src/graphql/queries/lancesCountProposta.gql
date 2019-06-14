@@ -1,0 +1,7 @@
+query
+( 
+    $prop_cat:Int!
+) 
+{
+  lancesCountProposta(prop_cat:$prop_cat)
+}

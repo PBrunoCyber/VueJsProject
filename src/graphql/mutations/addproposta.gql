@@ -1,0 +1,33 @@
+mutation
+(
+    $titulo: String!
+    $valor:String!
+    $local:String!
+    $descricao:String!
+    $tipo:String!
+    $status:Int!
+    $tempo:String!
+    $date:String
+    $finalizar:Int!
+    $user_envia_id:Int!
+    $user_recebe_id:Int!
+)
+{
+  createProposta
+	(
+    titulo: $titulo,
+    valor: $valor,
+    local: $local,
+    descricao: $descricao,
+   	tipo: $tipo,
+    tempo:$tempo,
+    date:$date,
+    status: $status,
+    finalizar: $finalizar,
+    user_envia_id: $user_envia_id,
+   	user_recebe_id: $user_recebe_id
+){
+    id
+    titulo
+  }
+}

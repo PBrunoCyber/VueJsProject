@@ -1,0 +1,29 @@
+query
+( 
+    $imagem:Int!
+){
+  portifolioForImagem(imagem:$imagem){
+    id
+    titulo
+    descricao
+    imagens
+    imagem{
+      id
+      imagem
+      ramo
+      descricao
+      cidade
+      estado
+      telefone
+      logradouro
+      category{
+        name
+        image
+      }
+      user{
+        id
+        name
+      }
+    }
+  }
+}

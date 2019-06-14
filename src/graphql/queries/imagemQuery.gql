@@ -6,12 +6,14 @@ query($id: Int!){
   	cidade
   	estado
   	descricao
+    telefone
   	logradouro
   	user{
       id
       name
     }
   	category{
+      id
       name
     }
   }

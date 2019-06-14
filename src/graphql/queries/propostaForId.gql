@@ -1,0 +1,26 @@
+query($id: Int!){
+  proposta(id:$id){
+    id
+    titulo
+    valor
+    tempo
+    descricao
+    tipo
+    local
+    user_envia{
+      id
+      telefone
+      user{
+        id
+	    name
+      }
+  	}
+    user_recebe{
+      id
+      user{
+        id
+        name
+      }
+    }
+}
+}

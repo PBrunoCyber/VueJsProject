@@ -1,0 +1,35 @@
+query
+($user_envia_id:Int!)
+{
+  propostaCatForUserEnvia
+  ( 
+  		user_envia_id:$user_envia_id
+  ){
+    id
+    titulo
+    valor
+    local
+    descricao
+    tipo
+    date
+    status
+    lances{
+      id
+      data
+      horaInicio
+      horaFim
+      status
+      descricao
+    }
+    category{
+      image
+      name
+    }
+    user_aceito{
+      id
+      user{
+        name
+      }
+    }
+  }
+}

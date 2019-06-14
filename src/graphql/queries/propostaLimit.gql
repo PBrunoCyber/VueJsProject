@@ -1,0 +1,27 @@
+query
+(
+    $user_envia: Int!
+)
+{
+  propostaLimit(user_envia:$user_envia){
+    id
+    titulo
+    valor
+    local
+    descricao
+    tipo
+    date
+    status
+  	user_recebe{
+      id
+      imagem
+      user{
+        id
+        name
+      }
+    }
+    orcamento{
+        id
+    }
+  }
+}

@@ -1,0 +1,21 @@
+query($id: ID!){
+  category(id:$id){
+    id
+    name
+    imagens{
+      ramo
+      descricao
+      cidade
+      estado
+      imagem
+      logradouro
+      category{
+          name
+      }
+      user{
+          id
+        name
+      }
+    }
+  }
+}

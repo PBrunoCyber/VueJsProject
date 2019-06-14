@@ -1,0 +1,72 @@
+query
+( 
+    $count: Int!
+    $page: Int!
+    $category_id:Int!
+){
+  propForCatPaginate(count:$count,page:$page,category_id:$category_id,orderBy:[{field:"id",order:DESC}]){
+    data{
+        id
+        titulo
+        valor
+        local
+        descricao
+        tempo
+        tipo
+        date
+        status
+        user_envia{
+          id
+          cidade
+          estado
+          imagem
+          telefone
+          logradouro
+          user{
+              id
+              name
+              email
+          }
+        }
+        user_aceito{
+        id
+        cidade
+        estado
+        imagem
+        telefone
+        logradouro
+        user{
+            id
+            name
+            email
+        }
+        }
+        category{
+        name
+        }
+        lances{
+        id
+        data
+        horaInicio
+        horaFim
+        descricao
+        user_lance{
+            id
+            user{
+            name
+            }
+        }
+        }
+    }
+    paginatorInfo{
+      currentPage
+      hasMorePages
+      firstItem
+      hasMorePages
+      lastItem
+      lastPage
+      perPage
+      total
+    }
+  }
+}

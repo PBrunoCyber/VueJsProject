@@ -1,0 +1,14 @@
+query (
+    $user_avaliado: Int!
+){
+  avaliacaoLimit( 
+  	user_avaliado:$user_avaliado
+  ){
+    descricao
+    user_avalia{
+      user{
+        name
+      }
+    }
+  } 
+}

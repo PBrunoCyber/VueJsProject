@@ -1,0 +1,34 @@
+mutation
+(
+    $titulo:String!
+    $valor:String!
+    $local:String!
+    $descricao:String!
+    $tipo:String!
+    $tempo:String!
+    $status:Int!
+    $date:String
+    $user_envia_id:Int!
+    $category_id:Int!
+    $user_aceito_id:Int
+)
+{
+  createPropostaCategory
+  (
+    titulo:$titulo,
+    valor:$valor,
+    local:$local,
+    descricao:$descricao,
+    tipo:$tipo,
+    status:$status,
+    tempo:$tempo,
+    date:$date,
+    category_id:$category_id,
+    user_envia_id:$user_envia_id,
+    user_aceito_id:$user_aceito_id
+  ){
+    category{
+        name
+    }
+  }
+}

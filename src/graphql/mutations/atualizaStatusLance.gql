@@ -1,0 +1,14 @@
+mutation
+(
+    $id: ID!
+    $status:Int!
+)
+{
+	updateLance
+  ( 
+  	id: $id,
+    status:$status
+  ){
+    id
+  }
+}

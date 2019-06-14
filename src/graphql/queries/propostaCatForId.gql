@@ -1,0 +1,73 @@
+query
+(
+    $id: Int!
+)
+{
+  propostaCategory(id:$id){
+    id
+    titulo
+    valor
+    local
+    descricao
+    tipo
+    date
+    tempo
+    status
+    user_envia{
+      id
+      cidade
+      estado
+      imagem
+      telefone
+      logradouro
+      user{
+        id
+        name
+        email
+      }
+    }
+    user_aceito{
+     id
+      cidade
+      estado
+      imagem
+      telefone
+      logradouro
+      user{
+        id
+        name
+        email
+      }
+    }
+    category{
+      image
+      name
+    }
+    lances{
+      id
+      data
+      horaInicio
+      horaFim
+      status
+      date
+      descricao
+      user_lance{
+        id
+        imagem
+        ramo
+        descricao
+        cidade
+        estado
+        telefone
+        logradouro
+        category{
+          name
+        }
+        user{
+          name
+          email
+        }
+      }
+    }
+  }
+}

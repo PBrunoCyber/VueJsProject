@@ -1,0 +1,24 @@
+mutation( 
+    $id:ID!
+    $titulo:String!
+    $valor:String!
+    $tempo:String!
+    $tipo:String!
+    $local:String!
+    $descricao:String!
+){
+  editProposta( 
+  	id:$id,
+    titulo:$titulo,
+    valor:$valor,
+    tempo:$tempo,
+    tipo:$tipo,
+    local:$local,
+    descricao:$descricao
+  ){
+    id
+    titulo
+    valor
+    local
+  }
+}

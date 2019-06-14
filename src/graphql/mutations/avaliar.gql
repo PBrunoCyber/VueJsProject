@@ -1,0 +1,25 @@
+mutation
+(
+    $titulo:String!
+    $date:String
+    $estrela: Int!
+    $recomenda: Int!
+    $descricao: String!
+    $user_avalia_id:Int!
+    $user_avaliado_id:Int!
+)
+{
+  createAvaliacao
+  (
+    titulo:$titulo,
+    date:$date,
+    estrela:$estrela,
+    recomenda:$recomenda,
+    descricao: $descricao,
+    user_avalia_id:$user_avalia_id,
+    user_avaliado_id:$user_avaliado_id
+  ){
+    id
+    estrela
+  }
+}

@@ -1,0 +1,34 @@
+query(
+  $category_id:Int!
+  $count:Int!
+  $page:Int!
+){
+  proByCategory( 
+  	category:$category_id,count:$count,page:$page,orderBy:[{field:"id",order:DESC}]
+  ){
+    data{
+      id
+      ramo
+      descricao
+      logradouro
+      cidade
+      imagem
+      estado
+      telefone
+      user{
+        id
+        name
+      }
+    }
+    paginatorInfo{
+      count
+      currentPage
+      firstItem
+      hasMorePages
+      lastItem
+      lastPage
+      perPage
+      total
+    }
+  }
+}

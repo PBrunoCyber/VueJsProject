@@ -1,0 +1,32 @@
+mutation
+(
+    $mensagem:String!
+    $date:String
+    $user_envia_id:Int!
+    $user_recebe_id:Int!
+    $proposta_categoria_id:Int!
+)
+{
+  createMensagem(
+    mensagem:$mensagem,
+    date:$date,
+    user_envia_id:$user_envia_id,
+    user_recebe_id:$user_recebe_id,
+    proposta_categoria_id:$proposta_categoria_id
+  ){
+    mensagem
+    date
+    user_envia{
+      id
+      user{
+        name
+      }
+    }
+    user_recebe{
+      id
+      user{
+        name
+      }
+    }
+  }
+}

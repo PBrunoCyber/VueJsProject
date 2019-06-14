@@ -1,0 +1,44 @@
+mutation
+(
+    $data: String!
+    $horaInicio: String!
+    $horaFim: String!
+    $date: String
+    $descricao: String!
+    $proposta_id: Int!
+){
+  createDisponivel
+  (
+    data: $data,
+    horaInicio: $horaInicio,
+    horaFim: $horaFim,
+    date:$date,
+    descricao: $descricao,
+    proposta_id: $proposta_id
+  ){
+    id
+    data
+    horaInicio
+    horaFim
+    proposta{
+      id
+      titulo
+      valor
+      local
+      user_envia{
+        id
+        user{
+         id
+          name
+        }
+      }
+      user_envia{
+        id
+        user{
+         id
+          name
+        }
+      }
+    }
+  }
+}

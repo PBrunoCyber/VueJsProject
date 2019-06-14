@@ -1,0 +1,6 @@
+query
+(
+    $user_avaliado: Int!
+){
+  mediaAvaliacao(user_avaliado:$user_avaliado)
+}

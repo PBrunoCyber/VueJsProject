@@ -1,0 +1,16 @@
+mutation
+(
+    $id: ID!
+    $status: Int!
+    $user_aceito_id:Int
+)
+{
+	updatePropostaForCategory
+  ( 
+  	id:$id,
+    status:$status,
+    user_aceito_id:$user_aceito_id
+  ){
+    id
+  }
+}

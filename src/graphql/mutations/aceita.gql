@@ -1,0 +1,11 @@
+mutation
+(
+    $id: ID!
+    $status: Int!
+)
+{
+  updateAceita(id:$id,status:$status){
+    id
+    status
+  }
+}

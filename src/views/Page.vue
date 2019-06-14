@@ -1,10 +1,10 @@
 <template>
     <div class="page">
-        <div>
-            <div v-if="me.status === 1">
+        <div v-if="this.me">
+            <div v-if="this.me.status === 1">
               {{this.$router.push('/page/cliente')}}
             </div>
-            <div v-if="me.status === 2">
+            <div v-if="this.me.status === 2">
               {{this.$router.push('/page/profissional')}}       
             </div> 
         </div>
@@ -42,21 +42,25 @@ export default {
               }
             }`,
           variables(){
-            return{
-              id: this.me.id
-            }
+            if(this.me){   
+              return{
+                id: this.me.id
+              }
+            } 
           },
           update(data){
-             this.ping = data;
-             return this.ping;
+            if(data){ 
+              this.ping = data;
+              return this.ping;
+            }
           }
         }
   },
   created(){
-    localStorage.setItem('status',this.me.status);
+    if(this.me){
+      localStorage.setItem('status',this.me.status);
+    }
   },
-  
-  
 }
 </script>
 

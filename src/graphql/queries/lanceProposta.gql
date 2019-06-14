@@ -1,0 +1,32 @@
+
+query
+(
+    $proposta:Int!
+    $user:Int!
+)
+{
+  lanceProposta(proposta:$proposta,user:$user){
+    id
+    data
+    horaInicio
+    horaFim
+    descricao
+    date
+    status
+    user_lance{
+      id
+    }
+    proposta_categoria{
+      user_envia{
+        telefone
+        cidade
+        estado
+        logradouro
+        user{
+          email
+          name
+        }
+      }
+    }
+  }
+}

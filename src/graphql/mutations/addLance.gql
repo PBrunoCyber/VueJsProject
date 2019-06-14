@@ -1,0 +1,26 @@
+mutation
+(
+    $data:String!
+    $horaInicio:String!
+    $horaFim:String!
+    $descricao:String!
+    $status:Int!
+    $date:String
+    $user_lance_id:Int!
+    $proposta_categoria_id: Int!
+)
+{
+  createLance
+  (
+    data: $data,
+    horaInicio: $horaInicio,
+    horaFim: $horaFim,
+    date:$date,
+    descricao: $descricao,
+    status: $status,
+    user_lance_id: $user_lance_id,
+    proposta_categoria_id: $proposta_categoria_id
+  ){
+    id
+  }
+}

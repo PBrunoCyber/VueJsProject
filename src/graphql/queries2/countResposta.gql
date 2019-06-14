@@ -1,0 +1,5 @@
+query
+($mensagem:Int!)
+{
+  countResposta(mensagem:$mensagem)
+}

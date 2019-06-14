@@ -7,6 +7,7 @@ query($user_id: Int!){
   	logradouro
     imagem
     user{
+      id
       name
     }
   }

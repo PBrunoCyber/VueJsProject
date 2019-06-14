@@ -1,0 +1,41 @@
+query
+(
+  $category:Int!
+  $cidade:String
+  $estado:String
+  $count:Int!
+  $page:Int!
+)
+{
+  searchWithCat( 
+  	category:$category,cidade:$cidade,estado:$estado,count:$count,page:$page,orderBy:[{field:"id",order:DESC}]
+  ){
+    data{
+      id
+      ramo
+      descricao
+      logradouro
+      cidade
+      estado
+      imagem
+      telefone
+      user{
+        id
+        name
+      }
+      category{
+        name
+      }
+    }
+    paginatorInfo{
+      count
+      currentPage
+      firstItem
+      hasMorePages
+      lastItem
+      lastPage
+      perPage
+      total
+    }
+  }
+}

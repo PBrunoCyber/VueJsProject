@@ -2,12 +2,13 @@
   <div id="app">
     <div id="nav">
       <!-- Inicio do navbar -->
-      <nav class="navbar center" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-          </a>
-
+      <nav class="navbar center" role="navigation" aria-label="main navigation" style="position:relative;z-index:1;background:transparent">
+        <div class="navbar-brand" >
+          <router-link to="/" class="navbar-item">
+            <div class="navbar-item">
+              <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+            </div>
+          </router-link>
           <a
             role="button"
             class="navbar-burger burger"
@@ -22,75 +23,17 @@
         </div>
 
         <div id="navbarBasicExample" class="navbar-menu">
-          <router-link to="/" class="navbar-item">Home</router-link>
-          <router-link to="/page" v-if="logado === 'ok'" class="navbar-item">Page</router-link>
           <div class="navbar-end">
             <div class="navbar-item has-dropdown is-hoverable" v-if="me && logado === 'ok'">
-              <!-- Mostra a foto do usuário profissional -->
-              <ApolloQuery
-                :query="require('@/graphql/queries/imagemQuery.gql')"
-                :variables="{id:me.id}"
-              >
-                <template slot-scope="{ result: { data, loading },isLoading }">
-                  <div v-if="data">
-                    <div v-if="isLoading">Loading...</div>
-                    <div v-else>
-                      <br>
-                      <div v-for="imagem of data.imageForUserId" :key="imagem.id">
-                        <figure class="image is-32x32" v-if="imagem.imagem">
-                          <img
-                            :src="`http://graphql.me/imagem/${imagem.imagem}`"
-                            alt="conver image"
-                          >
-                        </figure>
-                        <figure class="image is-32x32" v-else>
-                          <img :src="`http://graphql.me/imagem/noimage.png`" alt="conver image">
-                        </figure>
-                      </div>
-                    </div>
-                  </div>
-                </template>
-              </ApolloQuery>
-              <!-- Fim do Apollo Query para profissionais -->
-
-              <!-- Mostra a foto do usuário cliente -->
-              <ApolloQuery
-                :query="require('@/graphql/queries/clientForUserId.gql')"
-                :variables="{user_id:me.id}"
-              >
-                <template slot-scope="{ result: { data, loading },isLoading }">
-                  <div v-if="data">
-                    <div v-if="isLoading">Loading...</div>
-                    <div v-else>
-                      <br>
-                      <div v-for="imagem of data.clientForUserId" :key="imagem.id">
-                        <figure class="image is-32x32" v-if="imagem.imagem">
-                          <img
-                            :src="`http://graphql.me/perfilcli/${imagem.imagem}`"
-                            alt="conver image"
-                          >
-                        </figure>
-                        <figure class="image is-32x32" v-else>
-                          <img :src="`http://graphql.me/perfilcli/noimage.png`" alt="conver image">
-                        </figure>
-                      </div>
-                    </div>
-                  </div>
-                </template>
-              </ApolloQuery>
-              <!-- Fim do Apollo Query para clientes -->
-
               <div class="navbar-item navbar-link">
                 <b>{{me.name}}</b>
               </div>
-
               <div class="navbar-dropdown">
-                <a
-                  href="#"
-                  class="navbar-item"
-                  @click="logout"
-                  v-bind:style="{display:this.fade}"
-                >Logout</a>
+                <router-link to="/page" class="navbar-item level-item">Perfil<i class="material-icons" style="margin-left:5px">face</i></router-link>
+                <hr class="dropdown-divider">
+                <div class="dropdown-item">
+                  <a href="#" @click="logout" class="navbar-item" v-bind:style="{display:this.fade}">Logout</a>
+                </div>
               </div>
             </div>
           </div>
@@ -100,8 +43,8 @@
               <div v-if="logado === ''">
                 <router-link
                   to="/login"
-                  class="button is-primary"
-                  :style="`display: ${this.fadeLog};color: white`"
+                  class="btn2"
+                  :style="`display: ${this.fadeLog}`"
                 >Login</router-link>
               </div>
               <div v-else>
@@ -116,6 +59,8 @@
     <!-- Fim do Navbar -->
 
     <router-view/>
+
+    
   </div>
 </template>
 
@@ -159,9 +104,11 @@ export default {
       this.fade = "none";
       this.fadeLog = "inline";
     });
+    
   },
   methods: {
     logout() {
+      this.status = "";
       localStorage.removeItem("apollo-token");
       localStorage.removeItem("status");
       this.$router.push("/");
@@ -210,16 +157,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <style lang="scss">
 #nav {
-  padding: 30px;
+  padding: 20px 20px 20px 20px;
+  margin-bottom:0px;
   a {
     font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: black;
-    }
   }
 }
 .center {
   text-align: center;
 }
+
+
+
+.font{
+  font-family: 'Francois One', sans-serif;
+}
+
 </style>
