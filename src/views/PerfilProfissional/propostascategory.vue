@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img src="../../assets/frontendimages/background6.png" data-aos="slide-down" data-aos-duration="1000" alt="" style="position:absolute;top:0;width:120%;height:auto;max-width:150%;z-index:-1">
+    <img src="../../assets/frontendimages/background5.png" data-aos="slide-down" data-aos-duration="1000" alt="" style="position:absolute;top:0;width:100%;height:auto;max-width:100%;z-index:-1">
     <!-- BREADCRUMB -->
     <nav
       class="breadcrumb column is-offset-1-desktop is-offset-1-mobile is-offset-1-tablet"
@@ -28,9 +28,9 @@
 
     <h3
       class="title is-2 column is-6-desktop is-offset-3-desktop is-10-tablet is-offset-1-tablet is-full-mobile"
-      style="text-align:center;color:black;text-transform:uppercase"
+      style="text-align:center;color:black"
     >
-      <b>Abaixo estão as solicitacões para sua categoria</b>
+      <b>Abaixo estão as solicitacões para sua categoria!</b>
     </h3>
     <br>
     <br>
@@ -51,21 +51,21 @@
                       <div class="columns column">
                         <div class="column is-3-desktop is-4-tablet is-8-mobile is-offset-2-mobile" align="center">
                           <img
-                            class="img"
                             width="60%"
                             height="10%"
                             :src="`http://graphql.me/perfilCli/${prop.user_envia.imagem}`"
                             alt="Placeholder image"
                           >
-                        <div class="title is-5 level-item">
-                          <div class="level-item">{{prop.user_envia.user.name}}</div>
+                        <div class="column">
+                          <div>Proposta de ></div>
+                          <div style="color:black"><b>{{prop.user_envia.user.name}}</b></div>
                         </div>
                         
                         </div>
-                        <div class="column is-8-desktop is-full-mobile" style>
+                        <div class="column is-8-desktop is-full-mobile">
                           <div class="columns">
                             <div class="column is-12-desktop">
-                              <div class="title is-4" style="text-transform:uppercase;color:black">{{prop.titulo}}</div>
+                              <div class="title is-5" style="text-transform:uppercase;color:black"><b>{{prop.titulo}}</b></div>
                             </div>
                           </div>
 
@@ -134,25 +134,25 @@
                           </div>
                           <div class="columns is-mobile">
                             <div class="column is-6-desktop">
-                              <div class>
+                              <div style="color:black">
                                 <b>Local do serviço:</b>
                                 {{prop.local}}
                               </div>
                             </div>
-                            <div class="column">
+                            <div class="column" style="color:black">
                               <b>Pra quando?</b>
                               {{prop.tempo}}
                             </div>
                           </div>
                           <div class="columns is-mobile">
                             <div class="column is-6-desktop is-5-tablet">
-                              <div class>
+                              <div style="color:black">
                                 <b>Valor:</b>
                                 {{prop.valor}}
                               </div>
                             </div>
                             <div class="column">
-                              <div class>
+                              <div style="color:black">
                                 <b>Tipo do serviço:</b>
                                 {{prop.tipo}}
                               </div>
@@ -161,9 +161,10 @@
                         </div>
                       </div>
                       <div
-                        class="column is-10-desktop is-offset-1-desktop is-12-tablet"
-                        style="margin-top:-15px"
-                      ><div class style="text-align:justify">
+                        class="column is-10-desktop is-12-tablet is-offset-1-desktop"
+                        style="margin-top:-30px;border-top:1px solid #ccc"
+                      ><div class style="text-align:justify;color:black">
+                        <b>Descrição:</b>
                           {{prop.descricao}}
                         </div>
                       </div>
@@ -331,16 +332,13 @@
 
               </div>
               <div v-if="data && data.propostasForCat.data">
-                <div
-                  class="column is-10-desktop is-10-tablet is-offset-1-tablet is-offset-1-desktop"
-                  v-if="!data.propostasForCat.data[0]"
-                >
-                  <article class="message">
-                    <div class="message-body">
-                      <div
-                        class="title is-5"
+                <div v-if="!data.propostasForCat.data[0]" class="column box is-6-desktop is-10-mobile is-offset-1-mobile is-6-tablet is-offset-3-tablet is-offset-3-desktop"
+                style="border:1px solid black">
+                  <article>
+                    <div>
+                      <div style="color:black;text-transform:uppercase"
                         align="center"
-                      >Ainda não tem nenhuma requisição a sua categoria!</div>
+                      ><b>Ainda não tem nenhuma requisição a sua categoria!</b></div>
                     </div>
                   </article>
                 </div>
@@ -352,13 +350,13 @@
         </ApolloQuery>
       </div>
       <div v-else>
-          <div class="column box is-10-desktop is-10-tablet is-offset-1-tablet is-offset-1-desktop">
+          <div class="column box is-6-desktop is-10-mobile is-offset-1-mobile is-6-tablet is-offset-3-tablet is-offset-3-desktop"
+          style="border:1px solid black">
             <article>
-              <div class="message-body">
-                <div style="color:black"
-                  class="title is-5"
+              <div>
+                <div style="color:black;text-transform:uppercase"
                   align="center"
-                >Cadastre-se ver as propostas a sua categoria</div>
+                ><b>Cadastre-se ver as propostas a sua categoria</b></div>
               </div>
             </article>
           </div>

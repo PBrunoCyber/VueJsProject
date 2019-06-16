@@ -65,7 +65,7 @@
             <h1 class="level-item column is-10-desktop" style="font-size:15pt">Você quer algum profissional que seja encanador e possa resolver os problemas da sua casa? Preencha o formulário abaixo e explique sua situação, ou então entre no perfil de algumas dos encanadores e envie um solicitação para um em particular!</h1>
           </div>
           <div class="column is-7-desktop" style="margin-top:40px" v-if="this.nameCat.category.name ==='Outros' ">
-            <h1 class="title is-2 level-item font">Aqui estão os profissionais de outras áreas?</h1>
+            <h1 class="title is-2 column is-10-desktop is-10-tablet level-item font">Aqui estão os profissionais de outras áreas!</h1>
             <h1 class="level-item column is-10-desktop" style="font-size:15pt">Preencha o formulário abaixo e explique sua situação, ou então entre no perfil dos profissionais dessa área e envie um solicitação para um em particular!</h1>
           </div>
           <div class="column is-5-desktop">

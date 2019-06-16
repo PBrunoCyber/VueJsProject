@@ -1,7 +1,7 @@
 <template>
     <div v-if="this.ping">
       <div v-if="this.ping.imageForUserId">
-        <img src="../../assets/frontendimages/background5.png" data-aos="slide-down" data-aos-duration="1000" alt="" style="position:absolute;top:0;width:120%;height:auto;max-width:150%;z-index:-1">
+        <img src="../../assets/frontendimages/background5.png" data-aos="slide-down" data-aos-duration="1000" alt="" style="position:absolute;top:0;width:100%;height:auto;max-width:100%;z-index:-1">
         <!-- BREADCRUMB -->
         <nav class="breadcrumb column is-offset-1-desktop is-offset-1-mobile is-offset-1-tablet" style="font-weight:bold;color:black" aria-label="breadcrumbs">
         <ul>
@@ -25,8 +25,8 @@
         </nav>
 
         <!-- TITULO -->
-        <div class="title is-3 column is-4-desktop is-offset-4-desktop is-10-tablet is-offset-1-tablet" style="text-transform:uppercase;font-weight:bold;color:black" align="center">Abaixo estão as mensagens para você</div>
-        <br><br><br><br><br>
+        <div class="title is-2 column is-6-desktop is-offset-3-desktop is-10-tablet is-offset-1-tablet" style="font-weight:bold;color:black" align="center">Abaixo estão as mensagens para você!</div>
+        <br><br>
 
         <!-- MENSAGENS -->
         <ApolloQuery
@@ -275,6 +275,18 @@
                 </div>
                 <!-- SE NÃO TIVER ENVIADO A MENSAGEM -->
                 <div v-if="data">
+                <div v-if="data.mensagemUserRecebe.data && !data.mensagemUserRecebe.data[0]" class="column box is-6-desktop is-10-mobile is-offset-1-mobile is-6-tablet is-offset-3-tablet is-offset-3-desktop"
+                  style="border:1px solid black">
+                    <article>
+                      <div>
+                        <div style="color:black;text-transform:uppercase"
+                          align="center"
+                        ><b>Não há mensagens para você ainda!</b></div>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+                <!-- <div v-if="data">
                     <div v-if="data.mensagemUserRecebe.data && !data.mensagemUserRecebe.data[0]">
                         <div class="column is-10-desktop is-10-tablet is-offset-1-tablet is-offset-1-desktop">
                             <article class="message">
@@ -282,12 +294,12 @@
                                 <div
                                     class="title is-5"
                                     align="center"
-                                >Não há mensagens para você ainda!</div>
+                                ></div>
                                 </div>
                             </article>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <br><br><br><br>
             </div>
             </template>

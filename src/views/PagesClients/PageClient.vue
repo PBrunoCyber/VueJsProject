@@ -26,7 +26,7 @@
         <i style="font-size:40px;color:black;margin-top:20px" class="material-icons">close</i>
       </a>
       <div v-if="this.clica">
-        <div v-if="!this.clientes.clientForUserId[0]" class="column is-8-desktop">
+        <div v-if="!this.clientes.clientForUserId[0]">
           <div for="q" class="column" align="center">
             <div align="center">
               <figure class="image is-128x128">
@@ -38,8 +38,8 @@
             </div>
           </div>
         </div>
-        <div v-if="this.clientes.clientForUserId[0]" class="column is-8-desktop">
-          <div for="q" class="column is-11-desktop" align="center">
+        <div v-if="this.clientes.clientForUserId[0]">
+          <div for="q" align="center">
             <div align="center">
               <figure class="image is-128x128">
                 <img
@@ -119,19 +119,19 @@
       >
         <div class=" is-12-desktop is-full-mobile">
             <div class="column">
-                <div class="columns" style="margin:-30px -30px 0px -20px;padding-top:10px;padding-right:20px;border-bottom:1px solid #ccc">
+                <div class="columns" style="margin:-30px -30px 0px -20px;padding-top:10px;padding-right:20px">
                     <div class="column is-6-desktop is-offset-1">
                       <div class="columns">
                         <div class="column">
-                          <b><i class="material-icons" style="font-size:30pt;color:black" aria-hidden="true">face</i></b>
+                          <b><i class="material-icons" style="font-size:20pt;color:black" aria-hidden="true">face</i></b>
                         </div>
-                        <div class="column" style="margin-top:10px;margin-left:-50px">
+                        <div class="column" style="margin-top:0px;margin-left:-50px">
                           <span style="color:black;text-transform:uppercase"><b>Perfil</b></span>
                         </div>
                       </div>
                     </div>
-                    <div class="column is-offset-0-desktop is-2-desktop is-2-mobile is-2-tablet" style="margin-top:-30px;margin-left:10px">
-                      <a href="javascript:void(0)" style="color:black;font-size:40pt" class="closebtn" @click="closeNav()">&times;</a>
+                    <div class="column is-offset-0-desktop is-2-desktop is-2-mobile is-2-tablet" style="margin-top:-25px;margin-left:10px">
+                      <a href="javascript:void(0)" style="color:black;font-size:30pt" class="closebtn" @click="closeNav()">&times;</a>
                     </div>
                 </div>
                 <div class="columns column is-offset-2-desktop" id="border1">
@@ -272,49 +272,52 @@
                 </li>
               </ul>
             </nav>
-            <div
-              class="title is-3 column is-6-desktop is-6-tablet is-offset-3-tablet is-offset-3-desktop overlay3"
-              style="margin-top:5%;margin-right:98%"
-            >{{this.me.name}} 
-            </div>
-            <div class="overlay4">
-              <div
-                class="title is-3 column is-8-mobile is-offset-4-mobile"
-                style="padding-top:50px;padding-bottom:50px"
-              >
-                {{this.me.name}}
-                <br>
+            <div class="columns is-mobile">
+              <div v-if="!this.clientes.clientForUserId[0]" class="overlay6">
+                <div for="q" class="column">
+                  <div>
+                    <figure class="image is-128x128">
+                      <img
+                        class="img"
+                        :src="`http://graphql.me/perfilcli/noimage.png`"
+                        alt="conver image"
+                      >
+                    </figure>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div v-if="this.clientes.clientForUserId[0]">
-              <div for="q" class="column is-2-desktop is-2-tablet is-3-mobile">
-                <div>
-                  <figure class="image is-256x256">
-                    <img
-                      :src="`http://graphql.me/perfilcli/${this.clientes.clientForUserId[0].imagem}`"
-                      alt="conver image"
-                      style="position:absolute;margin-top:-8.5em;margin-left:20%"
-                    >
-                  </figure>
+              <div v-if="this.clientes.clientForUserId[0]">
+                <div for="q" class="column is-2-desktop is-2-tablet is-3-mobile">
+                  <div>
+                    <figure class="image is-128x128">
+                      <img
+                        class="img"
+                        :src="`http://graphql.me/perfilcli/${this.clientes.clientForUserId[0].imagem}`"
+                        alt="conver image"
+                      >
+                    </figure>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-8-tablet is-8-mobile">
+                <div
+                    class="title is-3 overlay3"
+                    style="margin-top:40px"
+                  >{{this.me.name}}
+                </div>
+                <div class="overlay4">
+                  <div
+                    class="title is-3"
+                    style="margin-top:40px"
+                  >
+                    {{this.me.name}}
+                    <br>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div v-if="!this.clientes.clientForUserId[0]" class="overlay6"  style="margin-top:3.5em">
-            <div for="q" class="column is-2-desktop is-2-tablet is-3-mobile">
-              <div>
-                <figure class="image is-256x256">
-                  <img
-                    :src="`http://graphql.me/perfilcli/noimage.png`"
-                    alt="conver image"
-                    style="position:absolute;margin-top:-12.5em;margin-left:30%"
-                  >
-                </figure>
-              </div>
-            </div>
-          </div>
-
-          <!--  -->
+          <!-- SUAS INFORMAÇÕES -->
           <div class="column box is-12-tablet" style="margin-top:0em">
             <div class="overlay3">
               <div class="columns">

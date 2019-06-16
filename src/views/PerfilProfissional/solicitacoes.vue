@@ -1,6 +1,6 @@
 <template>
   <div class="solicitacoes">
-    <img src="../../assets/frontendimages/background2.png" data-aos="slide-down" data-aos-duration="1000" alt="" style="position:absolute;top:0;width:120%;height:auto;max-width:100%;z-index:-1">
+    <img src="../../assets/frontendimages/background5.png" data-aos="slide-down" data-aos-duration="1000" alt="" style="position:absolute;top:0;width:120%;height:auto;max-width:100%;z-index:-1">
     <!-- BREADCRUMB -->
     <nav
       class="breadcrumb column is-offset-1-desktop is-offset-1-mobile is-offset-1-tablet"
@@ -29,8 +29,8 @@
     <div v-if="this.pro.imageForUserId">
       <h3
         class="title is-2 column is-6-desktop is-offset-3-desktop is-12-tablet is-full-mobile"
-        align="center" style="color:black;text-transform:uppercase;"
-      ><b>Abaixo estão as solicitacões de serviços feitas para você</b></h3>
+        align="center" style="color:black"
+      ><b>Abaixo estão as solicitacões de serviços feitas para você!</b></h3>
       <br>
       <div v-if="this.pro.imageForUserId[0]">
         <ApolloQuery
@@ -52,7 +52,6 @@
                           <div class="column" style="border-right:#ccc;border-bottom:#ccc">
                             <div>
                               <img
-                                class="img"
                                 width="60%"
                                 height="10%"
                                 :src="`http://graphql.me/perfilCli/${solicitacao.user_envia.imagem}`"
@@ -68,7 +67,7 @@
                         <div class="column is-9-desktop is-full-mobile">
                           <div class="column is-11-desktop" style="text-align:left">
                             <div class>
-                              <div class="title is-4" style="text-transform:uppercase;color:black">{{solicitacao.titulo}}</div>
+                              <div class="title is-5" style="text-transform:uppercase;color:black"><b>{{solicitacao.titulo}}</b></div>
                             </div>
                           </div>
                           <!-- STATUS -->
@@ -111,7 +110,7 @@
                             {{solicitacao.date}}
                           </div>
 
-                          <div class="columns column">
+                          <div class="columns column" style="color:black">
                             <div class="column is-6-desktop">
                               <div class>
                                 <b>Local do serviço:</b>
@@ -123,7 +122,7 @@
                                 {{solicitacao.tempo}}
                             </div>
                           </div>
-                          <div class="columns is-mobile" style="margin-top:-40px">
+                          <div class="columns is-mobile" style="margin-top:-40px;color:black">
                             <div class="column is-6-desktop is-6-mobile">
                               <div class="column">
                                 <div class>
@@ -133,7 +132,7 @@
                               </div>
                             </div>
                             <div class="column is-4-desktop">
-                              <div class="column ">
+                              <div class="column " >
                                 <div class>
                                   <b>Tipo do serviço:</b>
                                   {{solicitacao.tipo}}
@@ -143,8 +142,8 @@
                           </div>
                         </div>
                       </div>
-                      <div class="column  is-12-desktop is-12-tablet" style="text-align:justify;margin-top:-3%">
-                        <div class="column" >
+                      <div class="column  is-10-desktop is-offset-1-desktop is-12-tablet" style="text-align:justify;margin-top:-30px;border-top:1px solid #ccc">
+                        <div style="color:black" >
                           <b>Descrição:</b>
                           {{solicitacao.descricao}}
                         </div>
@@ -210,7 +209,7 @@
                                     @click.prevent="aceitar(solicitacao.id)"
                                   > 
                                   <ul class="breadcrumb">
-                                    <li>
+                                    <li class="level-item">
                                       <span class="icon is-small">
                                         <i class="material-icons">thumb_up</i>
                                       </span>
@@ -226,7 +225,7 @@
                                     @click.prevent="recusar(solicitacao.id)"
                                   > 
                                     <ul class="breadcrumb">
-                                      <li>
+                                      <li class="level-item">
                                         <span class="icon is-small">
                                           <i class="material-icons">thumb_down</i>
                                         </span>
@@ -321,16 +320,13 @@
                 </div>
 
                 <div v-if="data && data.propostaRecebe.data">
-                  <div
-                    class="column box is-10-desktop is-10-tablet is-offset-1-tablet is-offset-1-desktop"
-                    v-if="!data.propostaRecebe.data[0]"
-                  >
-                    <article style="padding:10px">
+                  <div v-if="!data.propostaRecebe.data[0]" class="column box is-6-desktop is-10-mobile is-offset-1-mobile is-6-tablet is-offset-3-tablet is-offset-3-desktop"
+                  style="border:1px solid black">
+                    <article>
                       <div>
-                        <div style="color:black"
-                          class="title is-5"
+                        <div style="color:black;text-transform:uppercase"
                           align="center"
-                        >Você ainda não tem nenhuma solicitação em particular!</div>
+                        ><b>Você ainda não tem nenhuma solicitação em particular!</b></div>
                       </div>
                     </article>
                   </div>
@@ -343,16 +339,28 @@
         </ApolloQuery>
       </div>
       <div v-else>
+        <div class="column box is-6-desktop is-10-mobile is-offset-1-mobile is-6-tablet is-offset-3-tablet is-offset-3-desktop"
+        style="border:1px solid black">
+          <article>
+            <div>
+              <div style="color:black;text-transform:uppercase"
+                align="center"
+              ><b>Cadastre-se para receber solicitações de outros usuários</b></div>
+            </div>
+          </article>
+        </div>
+        <!-- 
         <div class="column box is-10-desktop is-10-tablet is-offset-1-tablet is-offset-1-desktop">
           <article>
             <div class="message-body">
               <div style="color:black"
                 class="title is-5"
                 align="center"
-              >Cadastre-se para receber solicitações de outros usuários</div>
+              ></div>
             </div>
           </article>
-        </div>
+        </div> 
+        -->
       </div>
     </div><br><br><br><br>
   </div>

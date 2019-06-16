@@ -1,5 +1,9 @@
 <template>
   <div class="about" v-if="this.ping">
+    <div v-if="this.ping.imageForUserId && this.ping.imageForUserId[0]">
+      <div style="display:none" v-if="this.ping.imageForUserId[0].category.name === 'Marceneiro' || this.ping.imageForUserId[0].category.name === 'Diarista'">{{this.colorName = 'white'}}</div>
+      <div style="display:none" v-else>{{this.colorName = 'black'}}</div>
+    </div>  
     <!-- BREADCRUMB OVERLAY5 -->
     <!-- <nav
       class="breadcrumb column is-offset-1-desktop is-offset-1-mobile is-offset-1-tablet overlay5"
@@ -155,19 +159,19 @@
       >
         <div class="column is-12-desktop is-full-mobile">
           <div class="column">
-            <div class="columns" style="margin:-30px -30px 0px -20px;padding-top:10px;padding-right:20px;border-bottom:1px solid #ccc">
+            <div class="columns" style="margin:-30px -30px 0px -20px;padding-top:10px;padding-right:20px">
               <div class="column is-6-desktop is-offset-1">
                 <div class="columns">
                   <div class="column">
-                    <b><i class="material-icons" style="font-size:30pt;color:black" aria-hidden="true">face</i></b>
+                    <b><i class="material-icons" style="font-size:20pt;color:black" aria-hidden="true">face</i></b>
                   </div>
-                  <div class="column" style="margin-top:10px;margin-left:-60px">
+                  <div class="column" style="margin-top:0px;margin-left:-60px">
                     <span style="color:black;text-transform:uppercase"><b>Perfil</b></span>
                   </div>
                 </div>
               </div>
-              <div class="column is-offset-1-desktop is-2-desktop is-2-mobile is-2-tablet" style="margin-top:-30px;margin-left:30px">
-                <a href="javascript:void(0)" style="color:black;font-size:40pt" class="closebtn" @click="closeNav()">&times;</a>
+              <div class="column is-offset-1-desktop is-2-desktop is-2-mobile is-2-tablet" style="margin-top:-30px;margin-left:20px">
+                <a href="javascript:void(0)" style="color:black;font-size:30pt" class="closebtn" @click="closeNav()">&times;</a>
               </div>
             </div><br><br>
             <!-- Verificação de Usuário Adcionou ou não informações -->
@@ -232,14 +236,9 @@
               </div>
             </div>
             <!-- Se ele não adicionou nada então manda adicionar -->
-            <div for="q" class="column" align="center" v-if="!this.ping.imageForUserId[0]">
-              <div align="center">
-                <br>
-                <b>{{me.name}}</b>
-                <br>
-                {{me.email}}
-                <br>
-                <br>
+            <div for="q" class="" v-if="!this.ping.imageForUserId[0]">
+              <div>
+                <div align="center" style="color:black"><br><b>{{me.name}}</b><br>{{me.email}}<br><br></div>
                 <div class="column card-footer">
                   <router-link
                     class="b"
@@ -283,8 +282,8 @@
                   <a style="color:hsl(171, 100%, 41%)" @click.prevent="openNav()">
                     <b style="font-size:14pt">
                       <div class="columns">
-                          <i class="material-icons" aria-hidden="true" style="margin-right:10px">reorder</i>
-                          <div>Menu</div>
+                          <i class="material-icons" aria-hidden="true" style="margin-right:10px">face</i>
+                          <div>Perfil</div>
                       </div>
                     </b>
                   </a>
@@ -313,19 +312,19 @@
           <!-- Se o usuário estiver cadastrado, mostra a foto da cateogoria dele -->
           <div v-else>
             <div
-              class="box"
+              class="box imageHover"
               :style="`padding:0%;background-image:url('http://graphql.me/categoryImage/${this.ping.imageForUserId[0].category.image}');background-repeat:no-repeat;background-size:100% 200%`"
             >
               <div>
                 <div 
                   :class="`column is-8-desktop is-8-tablet ${this.arrayRed.name} title is-2 overlay3`"
-                  style="color:white;padding:4%"
+                  :style="`color:${this.colorName};padding:5%`"
                 >{{this.me.name}}
                 </div>
                 <div class="overlay4" style="padding:3%">
                   <div
                     class="title is-2 column is-10-mobile"
-                    style="color:white"
+                    :style="`color:${this.colorName}`"
                   >{{this.me.name}}</div>
                 </div>
               </div>
@@ -1205,8 +1204,6 @@
               v-else
             >Você não está cadastrado ainda, adicione informações adicionais e comece!</div>
           </div>
-
-
         </div>
       </div>
     </div>
@@ -1224,6 +1221,7 @@ export default {
       ping: null,
       count:3,
       page:1,
+      colorName:"",
       arrayRed: {
         inicio: "is-9-desktop",
         image: "is-3-desktop",
@@ -1276,10 +1274,8 @@ export default {
       },
       update(data) {
         // Bus.$emit('ok',data.imageForUserId[0].id);
-        if (data) {
           this.ping = data;
           return this.ping;
-        }
       }
     }
   },

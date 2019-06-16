@@ -1,6 +1,8 @@
 <template>
   <div>
     <!-- BREADCRUMB -->
+        <img src="../../assets/frontendimages/background5.png" data-aos="slide-down" data-aos-duration="1000" alt="" style="position:absolute;top:0;width:120%;height:auto;max-width:100%;z-index:-1">
+
     <nav
       class="breadcrumb column is-offset-1-desktop is-offset-1-mobile is-offset-1-tablet"
       aria-label="breadcrumbs" style="font-weight:bold">
@@ -148,8 +150,7 @@
                 <br>
                 <br>
                 <!-- INICIO DA PARTE DO MEIO -->
-                <div class="card-footer"></div>
-                <section class="hero" style="background:rgb(233,255,246);color:black" data-aos="slide-left" data-aos-duration="2000" data-aos-offset="-190">
+                <section class="hero" style="background:rgb(233,255,246);color:black">
                   <div class="hero-body" style>
                     <div class=" columns column">
                       <div class="column is-4-desktop" style="margin-right:3%">
@@ -165,7 +166,7 @@
                     </div>
                   </div>
                 </section>
-                <div class="card-footer"></div><br><br>
+                <br><br>
                 <!-- LANCES DOS PROFISSIONAIS!!! -->
                 <div class="column" style="font-size:30pt;color:black;font-weight:bold" align="center">Respostas</div><br>
                 <div class="column is-10-desktop is-offset-1-desktop is-full-mobile" style="color:black">
@@ -331,12 +332,12 @@
                     <!-- SE O USUÁRIO ACEITAR UMA PROPOSTA OU SE ELE AVALIAR O PROFISSIONAL -->
                     <div class="card" v-if="prop.status === 2 || prop.status === 4">
                       <div class="columns column" v-if="l.status === 1 || l.status === 2">
-                        <div class="column is-2-desktop is-3-tablet is-4-mobile is-offset-4-mobile">
+                        <div class="column is-3-desktop is-4-tablet is-6-mobile is-offset-3-mobile">
                           <div class="column">
                             <div class="level-item">
                               <img
                                 class="img"
-                                width="100%"
+                                width="60%"
                                 height="10%"
                                 :src="`http://graphql.me/imagem/${l.user_lance.imagem}`"
                                 alt="Placeholder image"
@@ -400,13 +401,20 @@
                                 </div>
                               </template>
                             </ApolloQuery>
+                            <div class="column" style="margin-top:-10px">
+                                <button
+                                  class="btn1 column is-12-desktop is-12-tablet is-full-mobile"
+                                  style="font-size:10pt;border-radius:100px;padding:5px"
+                                  @click.prevent="mudar(l.user_lance.id)"
+                                >Ver detalhes</button>
+                              </div>
                           </div>
                         </div>
                         <!-- INFORMAÇÕES DOS PROFISSIONAIS DISPONIBILIDADE -->
-                        <div class="column is-12-desktop is-10-tablet is-full-mobile">
+                        <div class="column is-10-desktop is-10-tablet is-full-mobile">
                           <div class="column">
                             <div class="columns is-mobile">
-                              <div class="column is-8-desktop is-8-mobile">
+                              <div class="column is-9-desktop is-8-mobile">
                                 <router-link
                                   :to="`/page/cliente/categories/profissional/${l.user_lance.id}`"
                                   class="is-full-mobile title is-4 hover"
@@ -417,8 +425,8 @@
                               </div>
                             </div>
                           </div>
-                          <div class="columns is-mobile column">
-                            <div class="column is-4-desktop is-4-tablet">
+                          <div class="columns is-mobile column" style="color:black">
+                            <div class="column is-4-desktop is-4-tablet" >
                               <div>
                                 <b>Disponibilidade na semana:</b>
                               </div>
@@ -434,7 +442,7 @@
                               Das {{l.horaInicio}} às {{l.horaFim}}
                             </div>
                           </div>
-                          <div class="column is-10-desktop is-10-tablet" style="margin-top:-40px">
+                          <div class="column is-10-desktop is-10-tablet" style="margin-top:-40px;color:black">
                             <div style="margin-bottom:8px">
                               <b>Descrição do horário:</b>
                             </div>

@@ -45,7 +45,7 @@
                   <div
                     class="column is-10-desktop is-offset-1-desktop is-12-tablet is-full-mobile"
                   >
-                    <div class="card" style="border:1px solid black">
+                    <div class="card" style="border:1px solid white">
                       <div class="columns column">
                         <div class="column is-3-desktop is-4-tablet is-6-mobile is-offset-3-mobile">
                           <div class="column">
@@ -174,7 +174,7 @@
                           {{prop.descricao}}
                         </div>
                       </div><br> 
-                      <div class="column" style="margin-top:-20px">
+                      <div style="margin-top:-20px">
                         <div v-if="prop.lances[0]">
                           <div v-if="prop.status === 0">
                             <b style="color:black">
@@ -630,13 +630,11 @@ export default {
   color:white;
 }
 .btnhover{
-  border:1px solid black;
+  border:1px solid rgb(209, 208, 208);
 }
 .btnhover:hover{
   background: rgb(247, 255, 175);
 }
-
-
 
 .overlay3 {
   margin-top: 0px;

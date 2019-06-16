@@ -40,7 +40,7 @@
               <div v-if="data">
                 <div v-for="pedido of data.propostaEnvia.data" :key="pedido.id">
                   <div class="column is-10-desktop is-offset-1-desktop is-12-tablet is-full-mobile">
-                    <div class="card boxer" style="border:1px solid black">
+                    <div class="card boxer">
                       <div class="columns">
                         <div class="column is-3-desktop is-3-tablet is-6-mobile is-offset-3-mobile">
                           <div class="column">
@@ -146,7 +146,7 @@
                           {{pedido.descricao}}
                         </div>
                       </div><br>
-                      <div style="margin-top:-20px" class="column">
+                      <div style="margin-top:-20px">
                         <div v-if="pedido.status===0">
                             <b style="color:black;padding:0" class="column is-12-desktop is-full-mobile">
                               <article class="message is-warning " style="border-radius:15px;text-align:center">
@@ -632,7 +632,7 @@ export default {
 }
 
 .btnhover{
-  border:1px solid black;
+  border:1px solid rgb(209, 208, 208);
 }
 .btnhover:hover{
   background: rgb(247, 255, 175);

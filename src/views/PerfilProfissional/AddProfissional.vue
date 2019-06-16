@@ -334,7 +334,7 @@ export default {
             title: "Opps preencha o campo do telefone corretamente!"
           });
         } 
-        if(this.tamanho_single > 85){
+        else if(this.tamanho_single > 85){
           this.$swal({
             type: "warning",
             title: "Opps voçê digitou mais de 85 caracteres!"
