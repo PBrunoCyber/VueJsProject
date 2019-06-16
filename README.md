@@ -1,22 +1,37 @@
 # Vue js front end using backend in laravel. 
 
-## This is a software for self-employed professionals
+This is a software for self-employed professionals
 
-### You have to create a project vue cli before cloning this project
+- You have to create a project vue cli before cloning this project
 
-## Project setup
+## Create a vue cli project
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+vue create 'any-name'
 ```
 
-### Compiles and minifies for production
+When you are creating a project, you have to select some option manually like: 
+Babel, CSS-Pre Processors, Router, Vuex and Linter / Formatter
+
+### You have to add vue apollo for the communication with Laravel backend using GraphQl API
 ```
-npm run build
+vue add apollo
+```
+
+After adding apollo, you have to change some things inside *vue-apollo.js*:
+```
+const httpEndpoint = process.env.VUE_APP_GRAPHQL_HTTP || 'http://graphql.me/graphql' 
+```
+- Here you have to put the link where your backend application is lacated, in my case, it`s http://graphql.me/graphql this is the same thing as localhost:8080/graphql, */graphql* is the name of my backend application in laravel
+
+- Ok, after you do this, you have to change this:
+```
+wsEndpoint: null, 
+```
+
+### You have to install axios for the communication with Laravel backend using REST API
+
+```
+npm install axios
 ```
 
 ### Run your tests
