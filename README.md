@@ -24,11 +24,11 @@ const httpEndpoint = process.env.VUE_APP_GRAPHQL_HTTP || 'http://graphql.me/grap
 - Here you have to put the link where your backend application is located, in my case, it`s http://graphql.me/graphql this is the same thing as localhost:8080/graphql
 - /graphql is the route pointing out *schema.graphql* inside Laravel 
 
-- Ok, after you do this, you have to change this:
+Ok, after you do this, you have to change this:
 ```
 wsEndpoint: null, 
 ```
-And this:
+- And this:
 ```
 fetchPolicy: 'no-cache',
 ```
@@ -39,14 +39,9 @@ fetchPolicy: 'no-cache',
 npm install axios
 ```
 
-### Run your tests
+### Ok that's all, now you should run 
 ```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
+npm run serve
 ```
 
 ### Customize configuration
