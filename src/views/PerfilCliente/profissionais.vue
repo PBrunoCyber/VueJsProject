@@ -68,7 +68,7 @@
             <h1 class="title is-2 column is-10-desktop is-10-tablet level-item font">Aqui estão os profissionais de outras áreas!</h1>
             <h1 class="level-item column is-10-desktop" style="font-size:15pt">Preencha o formulário abaixo e explique sua situação, ou então entre no perfil dos profissionais dessa área e envie um solicitação para um em particular!</h1>
           </div>
-          <div class="column is-5-desktop">
+          <div class="column is-4-desktop">
             <img width="100%" :src="`http://graphql.me/categoryImage/${this.nameCat.category.image}`" alt="cover image">
           </div>
         </div>

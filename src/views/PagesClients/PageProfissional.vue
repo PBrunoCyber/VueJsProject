@@ -64,7 +64,7 @@
         <div for="q" class="column">
           <div>
             <figure class="image is-128x128">
-              <img class="img" :src="`http://graphql.me/imagem/noimage.png`" alt="conver image">
+              <img class="img" style="height:120px" :src="`http://graphql.me/imagem/noimage.png`" alt="conver image">
             </figure>
           </div>
         </div>
@@ -74,7 +74,7 @@
         <div for="q" class="column">
           <div>
             <figure class="image is-128x128">
-              <img class="img"
+              <img class="img" style="height:120px"
                 :src="`http://graphql.me/imagem/${this.ping.imageForUserId[0].imagem}`"
                 alt="conver image"
               >
@@ -95,7 +95,25 @@
         </div>
         <div class="column card-footer">
           <router-link :to="`/page/profissional/solicitacoes`" class="b">
-            <i class="material-icons" aria-hidden="true">move_to_inbox</i> Ver Solicitações
+            <div class="columns is-mobile">
+              <div style="margin-right:30px" class="column is-8-mobile">
+                <i class="material-icons" aria-hidden="true">move_to_inbox</i> Ver Solicitações
+              </div>
+              <div class="column">
+                <ApolloQuery :query="require('@/graphql/queries2/countStatus.gql')" :variables="{user_recebe:ping.imageForUserId[0].id}">
+                  <template slot-scope="{ result: { data, loading },isLoading }">
+                  <div v-if="isLoading">Loading...</div>
+                    <div v-else>
+                      <div v-if="data">
+                        <div v-if="data.countStatus !== 0  ">
+                          <span class="tag is-success" style="font-weight:bold">{{data.countStatus}} New</span>
+                        </div>
+                      </div>
+                    </div>
+                  </template>
+                </ApolloQuery>
+              </div>
+            </div>
           </router-link>
         </div>
         <div class="column card-footer">
@@ -155,62 +173,114 @@
       <div
         id="mySidenav"
         class="column is-3-desktop is-4-tablet is-full-mobile sidenav overlay5"
-        style="margin-top:25px;background:hsla(0, 7%, 97%, 0.952)"
+        style="margin-top:25px;background:hsla(0, 7%, 97%, 0.952);padding-top:40px"
       >
-        <div class="column is-12-desktop is-full-mobile">
-          <div class="column">
-            <div class="columns" style="margin:-30px -30px 0px -20px;padding-top:10px;padding-right:20px">
-              <div class="column is-6-desktop is-offset-1">
+          <div class="columns" style="margin:-30px -30px 0px -20px;padding-top:10px;padding-right:20px">
+            <div class="column is-6-desktop is-offset-1">
+              <div class="columns">
+                <div class="column">
+                  <b><i class="material-icons" style="font-size:20pt;color:black" aria-hidden="true">face</i></b>
+                </div>
+                <div class="column" style="margin-top:0px;margin-left:-60px">
+                  <span style="color:black;text-transform:uppercase"><b>Perfil</b></span>
+                </div>
+              </div>
+            </div>
+            <div class="column is-offset-1-desktop is-2-desktop is-2-mobile is-2-tablet" style="margin-top:-24px;margin-left:20px">
+              <a href="javascript:void(0)" style="color:black;font-size:30pt" class="closebtn" @click="closeNav()">&times;</a>
+            </div>
+          </div><br><br>
+          <!-- Verificação de Usuário Adcionou ou não informações -->
+          <div v-if="!this.ping.imageForUserId[0]" style="margin-top:-20px" align="center">
+            <div for="q" class="column">
+              <div>
+                <figure class="image is-128x128">
+                  <img  style="height:140px" :src="`http://graphql.me/imagem/noimage.png`" alt="conver image">
+                </figure>
+              </div>
+            </div>
+          </div>
+          <!-- Se o usuário cadastrou as informações e não tem foto no perfil -->
+          <div v-if="this.ping.imageForUserId[0]" style="margin-top:-20px" align="center">
+            <div for="q" class="column">
+              <div>
+                <figure class="image is-128x128">
+                  <img  style="height:140px"
+                    :src="`http://graphql.me/imagem/${this.ping.imageForUserId[0].imagem}`"
+                    alt="conver image"
+                  >
+                </figure>
+              </div>
+            </div>
+          </div>
+          <!-- Se ele adcionou uma foto então faz isso -->
+          <div class="column" v-if="this.ping.imageForUserId[0]" style="margin-top:-20px">
+            <div align="center" style="color:black"><br><b>{{me.name}}</b><br>{{me.email}}<br><br></div>
+            <div class="column card-footer">
+              <router-link
+                class="b"
+                :to="`/page/profissional/${this.ping.imageForUserId[0].id}/editImage/${me.id}`"
+              >
+                <i class="material-icons">edit</i> Editar Perfil
+              </router-link>
+            </div>
+            <div class="column card-footer">
+              <router-link :to="`/page/profissional/solicitacoes`" class="b">
                 <div class="columns">
+                  <div class="column is-9-desktop">
+                    <i class="material-icons" aria-hidden="true">move_to_inbox</i> Ver Solicitações
+                  </div>
+                  <!-- NOTIFICAÇÃO -->
                   <div class="column">
-                    <b><i class="material-icons" style="font-size:20pt;color:black" aria-hidden="true">face</i></b>
+                    <ApolloQuery :query="require('@/graphql/queries2/countStatus.gql')" :variables="{user_recebe:ping.imageForUserId[0].id}">
+                      <template slot-scope="{ result: { data, loading },isLoading }">
+                      <div v-if="isLoading">Loading...</div>
+                        <div v-else>
+                          <div v-if="data">
+                            <div v-if="data.countStatus !== 0  ">
+                              <span class="tag is-success" style="font-weight:bold">{{data.countStatus}} New</span>
+                            </div>
+                          </div>
+                        </div>
+                      </template>
+                    </ApolloQuery>
                   </div>
-                  <div class="column" style="margin-top:0px;margin-left:-60px">
-                    <span style="color:black;text-transform:uppercase"><b>Perfil</b></span>
-                  </div>
                 </div>
-              </div>
-              <div class="column is-offset-1-desktop is-2-desktop is-2-mobile is-2-tablet" style="margin-top:-30px;margin-left:20px">
-                <a href="javascript:void(0)" style="color:black;font-size:30pt" class="closebtn" @click="closeNav()">&times;</a>
-              </div>
-            </div><br><br>
-            <!-- Verificação de Usuário Adcionou ou não informações -->
-            <div v-if="!this.ping.imageForUserId[0]" style="margin-top:-20px" align="center">
-              <div for="q" class="column">
-                <div>
-                  <figure class="image is-128x128">
-                    <img :src="`http://graphql.me/imagem/noimage.png`" alt="conver image">
-                  </figure>
-                </div>
-              </div>
+              </router-link>
             </div>
-            <!-- Se o usuário cadastrou as informações e não tem foto no perfil -->
-            <div v-if="this.ping.imageForUserId[0]" style="margin-top:-20px" align="center">
-              <div for="q" class="column">
-                <div>
-                  <figure class="image is-128x128">
-                    <img
-                      :src="`http://graphql.me/imagem/${this.ping.imageForUserId[0].imagem}`"
-                      alt="conver image"
-                    >
-                  </figure>
-                </div>
-              </div>
+            <div class="column card-footer">
+              <router-link :to="`/page/profissional/propostascategory`" class="b">
+                <i class="material-icons" aria-hidden="true">drafts</i> Ver Propostas para sua categoria
+              </router-link>
             </div>
-            <!-- Se ele adcionou uma foto então faz isso -->
-            <div class="column" v-if="this.ping.imageForUserId[0]" style="margin-top:-20px">
+            <div class="column card-footer">
+              <router-link
+                class="b"
+                :to="`/page/profissional/portifolio/${this.ping.imageForUserId[0].id}`"
+              >
+                <i class="material-icons">add_circle</i> Adicionar portifolios
+              </router-link>
+            </div>
+            <div class="column card-footer">
+              <router-link
+                class="b"
+                :to="`/page/profissional/mensagens`"
+              >
+                <i class="material-icons">send</i> Mensagens para você
+              </router-link>
+            </div>
+          </div>
+          <!-- Se ele não adicionou nada então manda adicionar -->
+          <div for="q" class="" v-if="!this.ping.imageForUserId[0]">
+            <div>
               <div align="center" style="color:black"><br><b>{{me.name}}</b><br>{{me.email}}<br><br></div>
               <div class="column card-footer">
                 <router-link
                   class="b"
-                  :to="`/page/profissional/${this.ping.imageForUserId[0].id}/editImage/${me.id}`"
+                  :to="`/page/profissional/${me.id}/imagem`"
+                  style="text-decoration: none"
                 >
-                  <i class="material-icons">edit</i> Editar Perfil
-                </router-link>
-              </div>
-              <div class="column card-footer">
-                <router-link :to="`/page/profissional/solicitacoes`" class="b">
-                  <i class="material-icons" aria-hidden="true">move_to_inbox</i> Ver Solicitações
+                  <i class="material-icons">add_circle</i> Adicionar Informações
                 </router-link>
               </div>
               <div class="column card-footer">
@@ -219,49 +289,12 @@
                 </router-link>
               </div>
               <div class="column card-footer">
-                <router-link
-                  class="b"
-                  :to="`/page/profissional/portifolio/${this.ping.imageForUserId[0].id}`"
-                >
-                  <i class="material-icons">add_circle</i> Adicionar portifolios
+                <router-link class="b" :to="`/page/profissional/solicitacoes`">
+                  <i class="material-icons" aria-hidden="true">move_to_inbox</i> Ver Solicitações
                 </router-link>
-              </div>
-              <div class="column card-footer">
-                <router-link
-                  class="b"
-                  :to="`/page/profissional/mensagens`"
-                >
-                  <i class="material-icons">send</i> Mensagens para você
-                </router-link>
-              </div>
-            </div>
-            <!-- Se ele não adicionou nada então manda adicionar -->
-            <div for="q" class="" v-if="!this.ping.imageForUserId[0]">
-              <div>
-                <div align="center" style="color:black"><br><b>{{me.name}}</b><br>{{me.email}}<br><br></div>
-                <div class="column card-footer">
-                  <router-link
-                    class="b"
-                    :to="`/page/profissional/${me.id}/imagem`"
-                    style="text-decoration: none"
-                  >
-                    <i class="material-icons">add_circle</i> Adicionar Informações
-                  </router-link>
-                </div>
-                <div class="column card-footer">
-                  <router-link :to="`/page/profissional/propostascategory`" class="b">
-                    <i class="material-icons" aria-hidden="true">drafts</i> Ver Propostas para sua categoria!
-                  </router-link>
-                </div>
-                <div class="column card-footer">
-                  <router-link class="b" :to="`/page/profissional/solicitacoes`">
-                    <i class="material-icons" aria-hidden="true">move_to_inbox</i> Ver Solicitações
-                  </router-link>
-                </div>
               </div>
             </div>
           </div>
-        </div>
       </div>
       <!-- FIM DO OVERLAY 5 -->
 
@@ -356,7 +389,7 @@
             <div for="q" :class="`column is-2-desktop is-offset-1-desktop is-2-tablet is-offset-1-tablet is-3-mobile`">
                 <img
                   class="img"
-                  width="150px"
+                  width="150px" 
                   :src="`http://graphql.me/imagem/noimage.png`"
                   alt="conver image"
                   style="position:absolute;margin-top:-10.3em"
@@ -1228,7 +1261,7 @@ export default {
         name: "is-offset-1-desktop",
         propImage: "is-2-desktop",
         propDescricao: "is-9-desktop"
-      }
+      },
     };
   },
   apollo: {

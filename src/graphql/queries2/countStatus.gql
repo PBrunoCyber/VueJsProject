@@ -1,0 +1,7 @@
+query
+(
+    $user_recebe: Int!
+)
+{
+  countStatus(user_recebe:$user_recebe)
+}

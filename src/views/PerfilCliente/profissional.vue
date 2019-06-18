@@ -105,7 +105,7 @@
         </div>
         <div class="column is-8-desktop is-9-tablet is-full-mobile">
           <div>
-            <h1 class="title is-2 column is-8-desktop" style="margin-bottom:-10px">{{this.pro.imagem.user.name}}</h1>
+            <h1 class="title is-2 column is-8-desktop is-10-tablet" style="margin-bottom:-10px">{{this.pro.imagem.user.name}}</h1>
             <br>
             <div class="column is-12-tablet">
               <b>Pesquena descrição sobre o(a) profissional:</b>

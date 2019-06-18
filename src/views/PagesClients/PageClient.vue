@@ -30,7 +30,7 @@
           <div for="q" class="column" align="center">
             <div align="center">
               <figure class="image is-128x128">
-                <img
+                <img style="height:120px" class="img"
                   :src="`http://graphql.me/perfilcli/noimage.png`"
                   alt="conver image"
                 >
@@ -42,7 +42,7 @@
           <div for="q" align="center">
             <div align="center">
               <figure class="image is-128x128">
-                <img
+                <img style="height:120px" class="img"
                   :src="`http://graphql.me/perfilcli/${this.clientes.clientForUserId[0].imagem}`"
                   alt="conver image"
                 >
@@ -139,7 +139,7 @@
                     <div for="q" class="column" align="center">
                       <div align="center">
                         <figure class="image is-128x128">
-                          <img :src="`http://graphql.me/perfilcli/noimage.png`" alt="conver image">
+                          <img style="height:120px" :src="`http://graphql.me/perfilcli/noimage.png`" alt="conver image">
                         </figure>
                       </div>
                     </div>
@@ -150,7 +150,7 @@
                     <div for="q" class="column is-11-desktop">
                       <div>
                         <figure class="image is-128x128">
-                          <img
+                          <img style="height:120px"
                             :src="`http://graphql.me/perfilcli/${this.clientes.clientForUserId[0].imagem}`"
                             alt="conver image"
                           >
@@ -278,7 +278,7 @@
                   <div>
                     <figure class="image is-128x128">
                       <img
-                        class="img"
+                        class="img" style="height:120px"
                         :src="`http://graphql.me/perfilcli/noimage.png`"
                         alt="conver image"
                       >
@@ -291,7 +291,7 @@
                   <div>
                     <figure class="image is-128x128">
                       <img
-                        class="img"
+                        class="img" style="height:120px"
                         :src="`http://graphql.me/perfilcli/${this.clientes.clientForUserId[0].imagem}`"
                         alt="conver image"
                       >
