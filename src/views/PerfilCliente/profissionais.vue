@@ -955,8 +955,8 @@ export default {
               user_aceito_id: null
             }
           })
-          .then(data => {
-            console.log(data);
+          .then(() => {
+            this.$swal({type:"success",title:"Demanda enviada com succeso!",text:'Espere um pouco até os profissionais poderem responder por sua requisição!'});
             this.$router.push(`/page/cliente/propostacategory`);
           })
           .catch(error => {

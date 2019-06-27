@@ -24,9 +24,7 @@
           </router-link>
         </li>
         <li v-if="this.pro.imagem">
-          <router-link style="color:hsl(171, 100%, 41%)"
-            :to="`/page/cliente/categories/profissionais/${this.pro.imagem.category.id}`"
-          >
+          <router-link style="color:hsl(171, 100%, 41%)" :to="`/page/cliente/categories/profissionais/${this.pro.imagem.category.id}`">
             <span class="icon is-small" style="margin-left:0px">
               <i class="material-icons" aria-hidden="true">people</i>
             </span>
@@ -306,7 +304,7 @@
                               alt="Placeholder image"
                               width="100%"
                             >
-                            <button class="btn-7" @click="mudar(portifolio.imagens)">Ver melhor</button>
+                            <button class="btn1" @click="mudar(portifolio.imagens)">Ver melhor</button>
                           </div>
                           <!-- MOSTRA AS ESTRELAS -->
                           <div class="column is-10-desktop is-12-tablet is-full-mobile">

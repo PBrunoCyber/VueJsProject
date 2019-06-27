@@ -46,16 +46,16 @@
                         <router-link :to="`/page/cliente/categories/profissionais/${cat.id}`">
                           <div
                             class="card"
-                            :style="`padding:1%;background-image:url('http://graphql.me/categoryImage/${cat.image}');background-repeat:no-repeat;background-size:100% 150%;border:1px solid grey`"
+                            :style="`padding:1%;background-image:url('http://graphql.me/categoryImage/${cat.image}');background-repeat:no-repeat;background-size:100% 150%;border:1px solid black`"
                           >
                             <div style="padding:20% 5% 0% 0%;margin-top:10%"></div>
                           </div>
                         </router-link>
                       </div>
-                        <div class="card column is-6-desktop is-offset-3-desktop is-6-tablet is-offset-3-tablet is-6-mobile is-offset-3-mobile" style="padding:1px;margin-top:-25px;border:1px solid grey;border-radius:40px">
+                        <div class="card column is-6-desktop is-offset-3-desktop is-6-tablet is-offset-3-tablet is-6-mobile is-offset-3-mobile" style="padding:1px;margin-top:-25px;border:1px solid black;border-radius:40px">
                           <footer class="">
                             <router-link :to="`/page/cliente/categories/profissionais/${cat.id}`">
-                              <button class="column is-12-desktop is-12-tablet is-12-mobile btnhover2" style="color:rgb(61, 61, 61);text-align:center;font-weight:bold;text-transform:uppercase">{{cat.name}}</button>
+                              <button class="column is-12-desktop is-12-tablet is-12-mobile btnhover2" style="color:black;text-align:center;font-weight:bold;text-transform:uppercase">{{cat.name}}</button>
                             </router-link>
                           </footer>
                         </div>
@@ -103,7 +103,7 @@ export default {
 }
 
 .shadow:hover{
-  transform: scale(1,1.5);
+  transform: scale(1.1,1.4);
   z-index: 1;
   transition:0.2s;
   padding:0px;

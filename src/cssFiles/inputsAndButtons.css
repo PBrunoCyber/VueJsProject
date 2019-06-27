@@ -20,11 +20,12 @@ button::after {
 
 /* BUTTON 5 */
 .btn-5 {background: none;
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 5px;
   color:black;
-  font-size: 1.4em;
+  font-size: 1.2em;
   margin: 0.3em;
+  font-weight: bold;
   padding: 0.8em 1.5em;
   position: relative;
   overflow: hidden;
@@ -32,8 +33,9 @@ button::after {
 
 .btn-5:hover{
   color: black;
-  border: 1px solid black;
-  background-color: rgb(0,209, 172);
+  font-weight: bold;
+  border: 2px solid black;
+  background-color: white;
 }
 
 /*BUTTON 10*/

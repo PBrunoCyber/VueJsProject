@@ -1,23 +1,21 @@
 <template>
   <div>
-  <section class="hero is-large" style="background:rgb(233, 255, 246)">
+  <section class="hero is-fullheight" style="background:rgb(233, 255, 246)">
   <div class="hero-head"><br>
     <div>
-      <div class="columns column" style="margin-top:2em;margin-bottom:0em">
-          <div class="column is-3-desktop is-offset-0-desktop is-7-tablet is-6-mobile overlay5" style="margin-left:20px" data-aos="flip-right" data-aos-offset="240" data-aos-duration="1000">
+      <div class="columns column" style="margin-top:5%;margin-bottom:30px">
+          <div class="column is-3-desktop is-offset-1-desktop is-3-tablet is-6-mobile is-offset-3-mobile" data-aos="flip-right" data-aos-offset="240" data-aos-duration="1000">
             <div class="home">
               <img alt="Vue logo" width="100%" src="../assets/frontendimages/trabalhador.png">
             </div>
           </div>
-          <div class="column is-9-desktop is-12-tablet is-12-mobile" data-aos="zoom-in" data-aos-duration="2000">
+          <div class="column is-8-desktop is-9-tablet is-12-mobile" data-aos="zoom-in" data-aos-duration="2000">
             <div class="overlay5"></div>
-            <div
-              class="column is-10-desktop is-offset-1-desktop is-12-mobile is-12-tablet"
-            ><div style="font-size:40pt;color:hsl(0, 0%, 25%)"><b>Solicite ou atenda serviços!</b></div><br>
-            <div style="font-size:20pt;color:black">Encontre aqui profissionais autônomos e demande serviços a eles ou rigistra-se como um profissional e atenda os pedidos que chegarem a você ou a sua categoria.</div><br>
+            <div class="column is-10-desktop is-offset-1-desktop is-12-mobile is-12-tablet" ><div style="font-size:40pt;color:black;text-align:justify"><b>Solicite ou atenda serviços!</b></div><br>
+            <div style="font-size:20pt;color:black;text-align:justify">Encontre aqui profissionais autônomos e demande serviços a eles ou rigistra-se como um profissional e atenda os pedidos que chegarem a você ou a sua categoria.</div><br>
             <br>
-            <div class="columns is-mobile" style="margin-left:-20px">
-                <div class="column is-6-desktop">
+            <div class="columns" style="margin-left:-20px">
+                <div class="column is-6-desktop" style="margin-bottom:-30px">
                   <router-link to="/registerPro" class="tn is-3 is-full-mobile">
                     <button class="btn-5 column is-12-desktop is-12-tablet is-full-mobile" style="text-align:center">Cadastre-se Como Profissional</button>
                   </router-link>
@@ -74,7 +72,7 @@
                   <img alt="Vue logo" width="100%" src="../assets/frontendimages/inicio2.jpg">
                 </div>
               </div>
-              <div class="column is-9-desktop is-7-tablet is-full-mobile" 
+              <div class="column is-9-desktop is-8-tablet is-full-mobile" 
               >
                 <div
                   class="title is-2 column is-8-desktop is-10-tablet is-offset-1" style="margin-top:0.5em"
@@ -115,51 +113,52 @@
         </section>
         <!-- PARTE FINAL -->
         
-        <section class="hero is-medium" style="background:rgb(233, 255, 246);padding-bottom:50px">
+        <section class="hero is-medium" style="">
         <div class="hero-head">
-        <div class="columns column" style="border-bottom:1px solid white">
-            <div class="columns" style="margin-top:1em;margin-bottom:1em">
-              <div class="column is-8-desktop is-full-mobile">
-                 <div
-                  class="title is-2 column is-8-desktop is-11-tablet is-offset-1 is-full-mobile" style="margin-top:2em;color:black"
-                ><b>Há profissionais de várias áreas prontos pra lhe atender!</b></div>
-                <div
-                  class="column is-8-desktop is-11-tablet is-offset-1 is-full-mobile" style="text-align:justify;font-size:14pt"
-                >A negociação é bastante rápida, você fala o serviço que quer e eles mandam sua disponibilidade. Todo o resto da negociação incluindo o orçamento é por conta do telefone ou por email. Essa ferramenta foi feita para ajudar na busca por profissionais e ao mesmo tempo fazer os profissionais difundirem seus trabalhos!</div>
-              </div>
-              <div class="column is-4-desktop is-5-tablet is-8-mobile is-offset-2-mobile">
-                  <img alt="Vue logo" class="overlay5" style="margin-left:-25%;margin-top:10%" width="100%" src="../assets/frontendimages/areas.png">
-                  <img alt="Vue logo" class="overlay6" style="margin-left:0%" width="100%" src="../assets/frontendimages/areas.png">
-              </div>
-            </div>
-        </div>
-        <div class="columns" style="padding-bottom:70px">
-          <div class="column is-12-desktop is-full-mobile">
-            <div class="columns" style="margin-top:1em;margin-bottom:2em">
-              <div class="column is-3-desktop is-8-mobile is-offset-2-mobile" align="center">
-                <div class="home">
-                  <img alt="Vue logo" class="overlay5" style="margin-left:18%;height:280px" src="../assets/frontendimages/escolher.png">
-                  <img alt="Vue logo" class="overlay6" style="margin-left:2%" src="../assets/frontendimages/escolher.png">
+          <div class="columns column" style="border-bottom:1px solid white;background:rgb(233, 255, 246);padding-bottom:50px">
+              <div class="columns" style="margin-top:1em;margin-bottom:1em">
+                <div class="column is-8-desktop is-full-mobile">
+                  <div
+                    class="title is-2 column is-8-desktop is-11-tablet is-offset-1 is-full-mobile" style="margin-top:2em;color:black"
+                  ><b>Há profissionais de várias áreas prontos pra lhe atender!</b></div>
+                  <div
+                    class="column is-8-desktop is-11-tablet is-offset-1 is-full-mobile" style="text-align:justify;font-size:14pt"
+                  >A negociação é bastante rápida, você fala o serviço que quer e eles mandam sua disponibilidade. Todo o resto da negociação incluindo o orçamento é por conta do telefone ou por email. Essa ferramenta foi feita para ajudar na busca por profissionais e ao mesmo tempo fazer os profissionais difundirem seus trabalhos!</div>
+                </div>
+                <div class="column is-4-desktop is-3-tablet is-8-mobile is-offset-2-mobile">
+                    <img alt="Vue logo" class="overlay5" style="margin-left:-25%;margin-top:10%" width="100%" src="../assets/frontendimages/areas.png">
+                    <img alt="Vue logo" class="overlay6" style="margin-left:0%" width="100%" src="../assets/frontendimages/areas.png">
                 </div>
               </div>
-              <div class="column is-11-desktop is-full-mobile">
-               <div
-                  class="title is-2 column is-8-desktop is-11-tablet is-offset-1 is-full-mobile" style="margin-top:0.5em;color:black"
-                ><b>Clientes avaliam profissionais!</b></div>
+          </div>
+          <div class="columns" style="padding-bottom:70px;padding-top:60px">
+            <div class="column is-12-desktop is-full-mobile">
+              <div class="columns" style="margin-top:1em;margin-bottom:2em">
+                <div class="column is-3-desktop is-2-tablet is-8-mobile is-offset-2-mobile" align="center">
+                  <div class="home">
+                    <img alt="Vue logo" class="overlay5" style="margin-left:18%;height:280px" src="../assets/frontendimages/escolher.png">
+                    <img alt="Vue logo" class="overlay6" style="margin-left:2%" src="../assets/frontendimages/escolher.png">
+                  </div>
+                </div>
+                <div class="column is-11-desktop is-full-mobile">
                 <div
-                  class="column is-8-desktop is-11-tablet is-offset-1 is-full-mobile" style="text-align:justify;font-size:14pt"
-                >O serviço de avaliações permite que clientes avaliem profissionais de acordo com o serviço realizado e fechado dentro da plataforma, assim os outros clientes poderão ficar mais tranquilos com um "desconhecido" entrando na sua casa!</div>
+                    class="title is-2 column is-8-desktop is-11-tablet is-offset-1 is-full-mobile" style="margin-top:0.5em;color:black"
+                  ><b>Clientes avaliam profissionais!</b></div>
+                  <div
+                    class="column is-8-desktop is-11-tablet is-offset-1 is-full-mobile" style="text-align:justify;font-size:14pt"
+                  >O serviço de avaliações permite que clientes avaliem profissionais de acordo com o serviço realizado e fechado dentro da plataforma, assim os outros clientes poderão ficar mais tranquilos com um "desconhecido" entrando na sua casa!</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        </div>
         </section>
       </div>
-     <footer class="" style="background:rgba(200, 200, 200, 0.834)">
-        <div class="has-text-centered" style="color:black;padding-top:10%;padding-bottom:10%;font-weight:bold">
-          <p>The website content is licensed</p>
-          <p>© Site feito para o WTCS 2019</p>
+     <footer class="" style="background:rgb(233, 255, 246)">
+        <div class="" style="color:black;padding-top:10%;padding-bottom:10%;font-weight:bold">
+          <div class="home">
+            <img src="http://graphql.me/categoryImage/LogoWithTxtTrasparent.png" style="margin-left:40px" alt="cover image" width="180" height="50">
+          </div>
         </div>
     </footer>
     </div>

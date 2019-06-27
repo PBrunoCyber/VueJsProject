@@ -354,7 +354,7 @@
                                     <div v-if="data.mediaAvaliacao !== null" align="center">
                                       <div v-if="data.mediaAvaliacao === 5">
                                         <img
-                                          class="column is-12-desktop is-10-tablet is-12-mobile"
+                                          class="column is-10-desktop is-10-tablet is-12-mobile"
                                           src="../../assets/estrela5.png"
                                           alt="cover image"
                                         >
@@ -363,7 +363,7 @@
                                         v-if="data.mediaAvaliacao >= 4 && data.mediaAvaliacao < 5"
                                       >
                                         <img
-                                          class="column is-12-desktop is-10-tablet is-12-mobile"
+                                          class="column is-10-desktop is-10-tablet is-12-mobile"
                                           src="../../assets/estrela4.png"
                                           alt="cover image"
                                         >
@@ -372,7 +372,7 @@
                                         v-if="data.mediaAvaliacao >= 3 && data.mediaAvaliacao < 4"
                                       >
                                         <img
-                                          class="column is-12-desktop is-10-tablet is-12-mobile"
+                                          class="column is-10-desktop is-10-tablet is-12-mobile"
                                           src="../../assets/estrela3.png"
                                           alt="cover image"
                                         >
@@ -381,14 +381,14 @@
                                         v-if="data.mediaAvaliacao >= 2 && data.mediaAvaliacao < 3"
                                       >
                                         <img
-                                          class="column is-12-desktop is-10-tablet is-12-mobile"
+                                          class="column is-10-desktop is-10-tablet is-12-mobile"
                                           src="../../assets/estrela2.png"
                                           alt="cover image"
                                         >
                                       </div>
                                       <div v-if="data.mediaAvaliacao < 2">
                                         <img
-                                          class="column is-12-desktop is-10-tablet is-12-mobile"
+                                          class="column is-10-desktop is-10-tablet is-12-mobile"
                                           src="../../assets/estrela1.png"
                                           alt="cover image"
                                         >
@@ -768,8 +768,6 @@
                                                   >{{portifolio.descricao}}</div>
                                                 </div>
                                               </div>
-                                              <div class="card-footer"></div>
-                                              <br>
                                             </div>
                                             <div v-if="data && data.portifolioForImagem">
                                               <div

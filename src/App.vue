@@ -5,7 +5,7 @@
       <nav class="navbar center" role="navigation" aria-label="main navigation" style="position:relative;z-index:1;background:transparent">
         <div class="navbar-brand">
           <router-link to="/" style="margin-top:0px">
-            <img src="http://graphql.me/categoryImage/LogoWithTxtTrasparent.png" style="margin-left:40px" alt="cover image" width="180" height="50">
+            <img src="http://graphql.me/categoryImage/LogoWithTxtTrasparent.png" style="margin-left:40px;padding-top:5px" alt="cover image" width="140" height="50">
           </router-link>
           <a
             role="button"
