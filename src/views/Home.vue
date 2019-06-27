@@ -19,12 +19,12 @@
             <div class="columns is-mobile" style="margin-left:-20px">
                 <div class="column is-6-desktop">
                   <router-link to="/registerPro" class="tn is-3 is-full-mobile">
-                    <button class="btn-5 column is-12-desktop is-12-tablet is-full-mobile" style="text-align:center">Cadastre-se como profissional</button>
+                    <button class="btn-5 column is-12-desktop is-12-tablet is-full-mobile" style="text-align:center">Cadastre-se Como Profissional</button>
                   </router-link>
                 </div>
                 <div class="column is-6-desktop">
                   <router-link to="/registerCli" class="tn is-4 is-full-mobile">
-                    <button class="btn-5 column is-12-desktop is-12-tablet is-full-mobile" style="text-align:center">Cadastre-se como cliente</button>
+                    <button class="btn-5 column is-12-desktop is-12-tablet is-full-mobile" style="text-align:center">Cadastre-se Como Cliente</button>
                   </router-link>
                 </div>
               </div>

@@ -56,14 +56,6 @@
           </div>
         </div>
     <br><br><br><br>
-    <footer class="footer" style="background:hsl(171, 100%, 41%);font-family: 'Francois One', sans-serif">
-        <div class="content has-text-centered">
-          <p class="font" style="font-size:18pt">
-             Software para cadastro de profissionais autônomos. 
-          </p><p>The website content is licensed</p>
-          <p>© Site feito para o WTCS 2019</p>
-        </div>
-    </footer>
   </div>
 </template>
 <script>

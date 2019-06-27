@@ -3,11 +3,9 @@
     <div id="nav">
       <!-- Inicio do navbar -->
       <nav class="navbar center" role="navigation" aria-label="main navigation" style="position:relative;z-index:1;background:transparent">
-        <div class="navbar-brand" >
-          <router-link to="/" class="navbar-item">
-            <div class="navbar-item">
-              <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-            </div>
+        <div class="navbar-brand">
+          <router-link to="/" style="margin-top:0px">
+            <img src="http://graphql.me/categoryImage/LogoWithTxtTrasparent.png" style="margin-left:40px" alt="cover image" width="180" height="50">
           </router-link>
           <a
             role="button"

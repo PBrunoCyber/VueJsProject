@@ -271,7 +271,7 @@
             </div>
           </div>
           <!-- Se ele não adicionou nada então manda adicionar -->
-          <div for="q" class="" v-if="!this.ping.imageForUserId[0]">
+          <div for="q" class="column" v-if="!this.ping.imageForUserId[0]">
             <div>
               <div align="center" style="color:black"><br><b>{{me.name}}</b><br>{{me.email}}<br><br></div>
               <div class="column card-footer">

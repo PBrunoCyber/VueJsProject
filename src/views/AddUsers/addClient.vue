@@ -11,7 +11,7 @@
                 <div class="text-white" style="font-size:18pt">Faça o login e entre na plataforma!</div><br>
                 <router-link
                   :to="`/login`"
-                ><button class="btn1 column is-10-desktop is-10-tablet is-6-mobile" style="border-radius:15px">Login</button></router-link>
+                ><button class="btn6 column is-10-desktop is-10-tablet is-6-mobile" style="border-radius:15px">Login</button></router-link>
              </div>
           </div>
           <div class="column is-6-desktop box">
@@ -72,14 +72,6 @@
           </div>
           </div>
     </div><br><br><br><br><br><br><br><br>
-    <footer class="footer" style="background:hsl(171, 100%, 41%);font-family: 'Francois One', sans-serif">
-        <div class="content has-text-centered">
-          <p class="font" style="font-size:18pt">
-             Software para cadastro de profissionais autônomos. 
-          </p><p>The website content is licensed</p>
-          <p>© Site feito para o WTCS 2019</p>
-        </div>
-    </footer>
   </div>
 </template>
 <script>
@@ -117,7 +109,11 @@ export default {
                 password:this.password  
             },
             }).then(() => {
-                alert('Muito bem agora faça o login!');
+                this.$swal({
+                  title: "Cadastrado com sucesso!",
+                  text: "Faça o login e seja bem vindo!",
+                  type: "success",
+                });
                 this.$router.push('/login');
             }).catch((error) => {
                 if(error.graphQLErrors.map(message=>this.emailRepetido = message.extensions.validation.email)){
