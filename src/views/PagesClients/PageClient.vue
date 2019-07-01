@@ -130,7 +130,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="column is-offset-0-desktop is-2-desktop is-2-mobile is-2-tablet" style="margin-top:-25px;margin-left:10px">
+                    <div class="column is-offset-0-desktop is-2-desktop is-2-mobile is-2-tablet" style="margin-top:-25px;margin-left:35px">
                       <a href="javascript:void(0)" style="color:black;font-size:30pt" class="closebtn" @click="closeNav()">&times;</a>
                     </div>
                 </div>
@@ -470,7 +470,7 @@
                             <div class="column is-12-desktop is-12-tablet is-12-mobile">
                               <div class="columns is-mobile">
                                 <!-- MOSTRA O TITULO DA PROPOSTA -->
-                                <div :class="`column is-9-desktop is-9-tablet is-8-mobile`">
+                                <div :class="`column is-9-desktop is-8-tablet is-7-mobile`">
                                   <div class="column">
                                     <h2 class="title is-4">
                                       <b>{{prop.titulo}}</b>

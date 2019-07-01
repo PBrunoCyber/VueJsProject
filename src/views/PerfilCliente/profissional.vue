@@ -150,7 +150,7 @@
                 :to="`/page/cliente/categories/profissional/proposta/${this.pro.imagem.id}`"
               >
                 <button
-                  class="btn2 column is-6-desktop is-offset-3-desktop is-12-tablet is-full-mobile"
+                  class="btn2 column is-12-desktop is-12-tablet is-full-mobile"
                   style="font-size:10pt;padding:9px"
                 >Eu quero que esse profissional me atenda</button>
               </router-link>
