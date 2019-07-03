@@ -1,10 +1,17 @@
 <template>
   <div class="solicitacoes">
-    <img src="../../assets/frontendimages/background5.png" data-aos="slide-down" data-aos-duration="1000" alt="" style="position:absolute;top:0;width:120%;height:auto;max-width:100%;z-index:-1">
+    <img
+      src="../../assets/frontendimages/background5.png"
+      data-aos="slide-down"
+      data-aos-duration="1000"
+      alt
+      style="position:absolute;top:0;width:120%;height:auto;max-width:100%;z-index:-1"
+    />
     <!-- BREADCRUMB -->
     <nav
       class="breadcrumb column is-offset-1-desktop is-offset-1-mobile is-offset-1-tablet"
-      aria-label="breadcrumbs" style="font-weight:bold"
+      aria-label="breadcrumbs"
+      style="font-weight:bold"
     >
       <ul style="color:black">
         <li>
@@ -29,9 +36,12 @@
     <div v-if="this.pro.imageForUserId">
       <h3
         class="title is-2 column is-6-desktop is-offset-3-desktop is-12-tablet is-full-mobile"
-        align="center" style="color:black"
-      ><b>Abaixo estão as solicitacões de serviços feitas para você!</b></h3>
-      <br>
+        align="center"
+        style="color:black"
+      >
+        <b>Abaixo estão as solicitacões de serviços feitas para você!</b>
+      </h3>
+      <br />
       <div v-if="this.pro.imageForUserId[0]">
         <ApolloQuery
           :query="require('@/graphql/queries/solicitacoes.gql')"
@@ -54,9 +64,10 @@
                               <img
                                 width="60%"
                                 height="10%"
+                                style="height:140px"
                                 :src="`http://graphql.me/perfilCli/${solicitacao.user_envia.imagem}`"
                                 alt="Placeholder image"
-                              >
+                              />
                             </div>
                             <div align="center">Solicitação de:</div>
                             <div class="column is-12-desktop is-12-tablet title is-5 level-item">
@@ -67,7 +78,9 @@
                         <div class="column is-9-desktop is-full-mobile">
                           <div class="column is-11-desktop" style="text-align:left">
                             <div class>
-                              <div class="title is-5" style="text-transform:uppercase;color:black"><b>{{solicitacao.titulo}}</b></div>
+                              <div class="title is-5" style="text-transform:uppercase;color:black">
+                                <b>{{solicitacao.titulo}}</b>
+                              </div>
                             </div>
                           </div>
                           <!-- STATUS -->
@@ -118,8 +131,8 @@
                               </div>
                             </div>
                             <div class="column">
-                                <b>Pra quando?</b>
-                                {{solicitacao.tempo}}
+                              <b>Pra quando?</b>
+                              {{solicitacao.tempo}}
                             </div>
                           </div>
                           <div class="columns is-mobile" style="margin-top:-40px;color:black">
@@ -132,7 +145,7 @@
                               </div>
                             </div>
                             <div class="column is-4-desktop">
-                              <div class="column " >
+                              <div class="column">
                                 <div class>
                                   <b>Tipo do serviço:</b>
                                   {{solicitacao.tipo}}
@@ -142,8 +155,11 @@
                           </div>
                         </div>
                       </div>
-                      <div class="column  is-10-desktop is-offset-1-desktop is-12-tablet" style="text-align:justify;margin-top:-30px;border-top:1px solid #ccc">
-                        <div style="color:black" >
+                      <div
+                        class="column is-10-desktop is-offset-1-desktop is-12-tablet"
+                        style="text-align:justify;margin-top:-30px;border-top:1px solid #ccc"
+                      >
+                        <div style="color:black">
                           <b>Descrição:</b>
                           {{solicitacao.descricao}}
                         </div>
@@ -152,11 +168,16 @@
                         <div
                           v-if="solicitacao.status !==2 && solicitacao.status !==3 && solicitacao.status !==4"
                           style="margin-bottom:10px"
-                        > 
+                        >
                           <b style="color:black;padding:0" v-if="solicitacao.status===1">
-                            <article class="message is-success" v-if="solicitacao.orcamento[0]" style="text-align:center">
+                            <article
+                              class="message is-success"
+                              v-if="solicitacao.orcamento[0]"
+                              style="text-align:center"
+                            >
                               <div class="message-body">
-                                Você aceitou o pedido do {{solicitacao.user_envia.user.name}}, entre em contato com ele através do  <div>número: {{solicitacao.user_envia.telefone}} ou email: {{solicitacao.user_envia.user.email}}</div>Obs: Só finalize o serviço quando ele acabar
+                                Você aceitou o pedido do {{solicitacao.user_envia.user.name}}, entre em contato com ele através do
+                                <div>número: {{solicitacao.user_envia.telefone}} ou email: {{solicitacao.user_envia.user.email}}</div>Obs: Só finalize o serviço quando ele acabar
                                 <div style="margin-top:10px;margin-bottom:-10px">
                                   <div>
                                     <button
@@ -168,31 +189,43 @@
                                 </div>
                               </div>
                             </article>
-                            <article class="message is-success" v-if="!solicitacao.orcamento[0]" style="text-align:center">
+                            <article
+                              class="message is-success"
+                              v-if="!solicitacao.orcamento[0]"
+                              style="text-align:center"
+                            >
                               <div class="message-body">
                                 Você aceitou o pedido do {{solicitacao.user_envia.user.name}}, entre em contato com ele através do número: {{solicitacao.user_envia.telefone}}, email: {{solicitacao.user_envia.user.email}}
                                 <div style="margin-top:10px;margin-bottom:-10px">
-                                   <router-link style="text-decoration:none"
-                                      :to="`/page/profissional/solicitacoes/orcamento/${solicitacao.id}`"
-                                    >
-                                      <button
-                                        class="btn-14 column is-8-desktop is-offset-2-desktop is-8-tablet is-offset-2-tablet is-full-mobile"
-                                        style="border-radius:100px"
-                                      >Mandar sua disponibilidade</button>
-                                   </router-link>
+                                  <router-link
+                                    style="text-decoration:none"
+                                    :to="`/page/profissional/solicitacoes/orcamento/${solicitacao.id}`"
+                                  >
+                                    <button
+                                      class="btn-14 column is-8-desktop is-offset-2-desktop is-8-tablet is-offset-2-tablet is-full-mobile"
+                                      style="border-radius:100px"
+                                    >Mandar sua disponibilidade</button>
+                                  </router-link>
                                 </div>
                               </div>
                             </article>
                           </b>
                         </div>
                         <div v-if="solicitacao.status ===2">
-                          <b style="color:black;bottom:0;padding:0" class="column is-12-desktop is-12-tablet is-full-mobile">
-                              <article class="message is-danger " style="border-radius:15px;text-align:center">
-                                <div class="message-body" style="color:black;">
-                                  Você recusou o pedido do {{solicitacao.user_envia.user.name}}, ele já foi avisado
-                                </div>
-                              </article>
-                            </b>
+                          <b
+                            style="color:black;bottom:0;padding:0"
+                            class="column is-12-desktop is-12-tablet is-full-mobile"
+                          >
+                            <article
+                              class="message is-danger"
+                              style="border-radius:15px;text-align:center"
+                            >
+                              <div
+                                class="message-body"
+                                style="color:black;"
+                              >Você recusou o pedido do {{solicitacao.user_envia.user.name}}, ele já foi avisado</div>
+                            </article>
+                          </b>
                         </div>
                         <div v-if="solicitacao.status === 0 || solicitacao.status === 1">
                           <div class="columns" v-if="solicitacao.status === 0">
@@ -207,15 +240,15 @@
                                     class="btn-14 column is-5-desktop is-offset-8-desktop is-5-tablet is-offset-8-tablet is-10-mobile"
                                     style="border-radius:100px"
                                     @click.prevent="aceitar(solicitacao.id)"
-                                  > 
-                                  <ul class="breadcrumb">
-                                    <li class="level-item">
-                                      <span class="icon is-small">
-                                        <i class="material-icons">thumb_up</i>
-                                      </span>
-                                      <span>Aceitar</span>
-                                    </li>
-                                  </ul>
+                                  >
+                                    <ul class="breadcrumb">
+                                      <li class="level-item">
+                                        <span class="icon is-small">
+                                          <i class="material-icons">thumb_up</i>
+                                        </span>
+                                        <span>Aceitar</span>
+                                      </li>
+                                    </ul>
                                   </button>
                                 </div>
                                 <div class="column is-6-desktop is-6-tablet">
@@ -223,7 +256,7 @@
                                     style="border-radius:100px;margin-left:20px"
                                     class="btn-13 column is-5-desktop is-5-tablet is-10-mobile"
                                     @click.prevent="recusar(solicitacao.id)"
-                                  > 
+                                  >
                                     <ul class="breadcrumb">
                                       <li class="level-item">
                                         <span class="icon is-small">
@@ -244,7 +277,7 @@
                                 @click.prevent="finalizar(solicitacao.id)"
                               >Finalizar Serviço</button>
                             </div>
-                          </div> -->
+                          </div>-->
                           <!-- <div v-if="!solicitacao.orcamento[0] && solicitacao.status === 1">
                             <router-link
                               :to="`/page/profissional/solicitacoes/orcamento/${solicitacao.id}`"
@@ -254,84 +287,135 @@
                                 style="border-radius:100px"
                               >Mandar sua disponibilidade!</button>
                             </router-link>
-                          </div> -->
+                          </div>-->
                         </div>
                         <div v-if="solicitacao.status === 3">
-                          <b style="color:black;padding:0" class="column is-12-desktop is-12-tablet is-full-mobile">
-                            <div class="message-body" align="center" style="border-left:5px solid rgb(99, 74, 110);background:rgba(250, 240, 255, 0.692);color:black">
+                          <b
+                            style="color:black;padding:0"
+                            class="column is-12-desktop is-12-tablet is-full-mobile"
+                          >
+                            <div
+                              class="message-body"
+                              align="center"
+                              style="border-left:5px solid rgb(99, 74, 110);background:rgba(250, 240, 255, 0.692);color:black"
+                            >
                               <b>Esse pedido foi finalizado com sucesso.</b>
                             </div>
                           </b>
                         </div>
                         <div v-if="solicitacao.status ===4">
-                          <b style="color:black;bottom:0;padding:0" class="column is-12-desktop is-12-tablet is-full-mobile">
-                              <article style="text-align:center;color:black">
-                                <div class="message-body" style="border-left:5px solid rgb(98, 0, 49);background:rgba(255, 215, 235, 0.24);color:black">
-                                  O(A) {{solicitacao.user_envia.user.name}} avaliou você nesse serviço, olhe seu perfil.
-                                </div>
-                              </article>
-                            </b>
+                          <b
+                            style="color:black;bottom:0;padding:0"
+                            class="column is-12-desktop is-12-tablet is-full-mobile"
+                          >
+                            <article style="text-align:center;color:black">
+                              <div
+                                class="message-body"
+                                style="border-left:5px solid rgb(98, 0, 49);background:rgba(255, 215, 235, 0.24);color:black"
+                              >O(A) {{solicitacao.user_envia.user.name}} avaliou você nesse serviço, olhe seu perfil.</div>
+                            </article>
+                          </b>
                         </div>
                       </div>
-                    </div><br>
+                    </div>
+                    <br />
                   </div>
                 </div>
-                <br>
+                <br />
                 <!-- PAGINAÇÃO -->
                 <div v-if="data && data.propostaRecebe.data">
-                  <div class="columns is-mobile column level-item" v-if="data.propostaRecebe.data[0]">
+                  <div
+                    class="columns is-mobile column level-item"
+                    v-if="data.propostaRecebe.data[0]"
+                  >
                     <!-- VOLTAR -->
                     <div v-if="data.propostaRecebe.paginatorInfo.currentPage !== 1">
-                      <a style="margin:5px;color:hsl(171, 100%, 41%)" @click.prevent="anterior()"><i class="material-icons" style="margin-top:5px">keyboard_arrow_left</i></a>
+                      <a style="margin:5px;color:hsl(171, 100%, 41%)" @click.prevent="anterior()">
+                        <i class="material-icons" style="margin-top:5px">keyboard_arrow_left</i>
+                      </a>
                     </div>
                     <div v-else>
-                      <i class="material-icons" style="margin-top:5px;margin-right:5px">keyboard_arrow_left</i>
+                      <i
+                        class="material-icons"
+                        style="margin-top:5px;margin-right:5px"
+                      >keyboard_arrow_left</i>
                     </div>
                     <!-- FOR PARA PERCORRER E MOSTAR AS PAGINAS -->
                     <div v-for="p of data.propostaRecebe.paginatorInfo.lastPage" :key="p.id">
                       <!-- SÓ MOSTRA OS 10 PRIMEIROS NÚMEROS PARA NÃO POLUIR A TELA -->
                       <div v-if="p <= 10">
-                        <div class="" v-if="page === p">  
-                          <a class="button" style="margin:5px;background:rgb(71, 71, 71);color:white"><b>{{p}}</b></a>
+                        <div class v-if="page === p">
+                          <a
+                            class="button"
+                            style="margin:5px;background:rgb(71, 71, 71);color:white"
+                          >
+                            <b>{{p}}</b>
+                          </a>
                         </div>
                         <div v-else>
-                          <a class="button button-solicita" style="margin:5px" @click.prevent="paginaComNumero(p)">{{p}}</a>
+                          <a
+                            class="button button-solicita"
+                            style="margin:5px"
+                            @click.prevent="paginaComNumero(p)"
+                          >{{p}}</a>
                         </div>
                       </div>
                     </div>
                     <!-- TRES PONTOS COM ULTIMA PAGINA -->
-                    <b style="margin-top:15px;margin-left:5px;margin-right:5px" v-if="data.propostaRecebe.paginatorInfo.lastPage > 11">... </b>
+                    <b
+                      style="margin-top:15px;margin-left:5px;margin-right:5px"
+                      v-if="data.propostaRecebe.paginatorInfo.lastPage > 11"
+                    >...</b>
                     <div v-if="data.propostaRecebe.paginatorInfo.lastPage > 10">
                       <div v-if="page === data.propostaRecebe.paginatorInfo.lastPage">
-                        <a class="button" style="margin:5px;background:rgb(71, 71, 71);color:white">{{data.mensagemUserEnvia.paginatorInfo.lastPage}}</a>
+                        <a
+                          class="button"
+                          style="margin:5px;background:rgb(71, 71, 71);color:white"
+                        >{{data.mensagemUserEnvia.paginatorInfo.lastPage}}</a>
                       </div>
                       <div v-else>
-                        <a class="button button-solicita" style="margin:5px" @click.prevent="ultimaPagina(data.mensagemUserEnvia.paginatorInfo.lastPage)">{{data.mensagemUserEnvia.paginatorInfo.lastPage}}</a>
+                        <a
+                          class="button button-solicita"
+                          style="margin:5px"
+                          @click.prevent="ultimaPagina(data.mensagemUserEnvia.paginatorInfo.lastPage)"
+                        >{{data.mensagemUserEnvia.paginatorInfo.lastPage}}</a>
                       </div>
                     </div>
                     <!-- PRÓXIMO -->
                     <div v-if="data.propostaRecebe.paginatorInfo.hasMorePages">
-                      <a style="margin:5px;color:hsl(171, 100%, 41%)" @click.prevent="proximo()"><i class="material-icons" style="margin-top:5px">keyboard_arrow_right</i></a>
+                      <a style="margin:5px;color:hsl(171, 100%, 41%)" @click.prevent="proximo()">
+                        <i class="material-icons" style="margin-top:5px">keyboard_arrow_right</i>
+                      </a>
                     </div>
                     <div v-else>
-                      <i class="material-icons" style="margin-top:5px;margin-left:5px">keyboard_arrow_right</i>
+                      <i
+                        class="material-icons"
+                        style="margin-top:5px;margin-left:5px"
+                      >keyboard_arrow_right</i>
                     </div>
                   </div>
                 </div>
 
                 <div v-if="data && data.propostaRecebe.data">
-                  <div v-if="!data.propostaRecebe.data[0]" class="column box is-6-desktop is-10-mobile is-offset-1-mobile is-6-tablet is-offset-3-tablet is-offset-3-desktop"
-                  style="border:1px solid black">
+                  <div
+                    v-if="!data.propostaRecebe.data[0]"
+                    class="column box is-6-desktop is-10-mobile is-offset-1-mobile is-6-tablet is-offset-3-tablet is-offset-3-desktop"
+                    style="border:1px solid black"
+                  >
                     <article>
                       <div>
-                        <div style="color:black;text-transform:uppercase"
-                          align="center"
-                        ><b>Você ainda não tem nenhuma solicitação em particular!</b></div>
+                        <div style="color:black;text-transform:uppercase" align="center">
+                          <b>Você ainda não tem nenhuma solicitação em particular!</b>
+                        </div>
                       </div>
                     </article>
                   </div>
                 </div>
-                <br><br><br><br><br>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
               </div>
               <!-- FIM DO V-FOR -->
             </div>
@@ -339,13 +423,15 @@
         </ApolloQuery>
       </div>
       <div v-else>
-        <div class="column box is-6-desktop is-10-mobile is-offset-1-mobile is-6-tablet is-offset-3-tablet is-offset-3-desktop"
-        style="border:1px solid black">
+        <div
+          class="column box is-6-desktop is-10-mobile is-offset-1-mobile is-6-tablet is-offset-3-tablet is-offset-3-desktop"
+          style="border:1px solid black"
+        >
           <article>
             <div>
-              <div style="color:black;text-transform:uppercase"
-                align="center"
-              ><b>Cadastre-se para receber solicitações de outros usuários</b></div>
+              <div style="color:black;text-transform:uppercase" align="center">
+                <b>Cadastre-se para receber solicitações de outros usuários</b>
+              </div>
             </div>
           </article>
         </div>
@@ -362,7 +448,11 @@
         </div> 
         -->
       </div>
-    </div><br><br><br><br>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
   </div>
 </template>
 <script>
@@ -375,8 +465,8 @@ export default {
     return {
       me: null,
       pro: [],
-      count:5,
-      page:1
+      count: 5,
+      page: 1
     };
   },
   apollo: {
@@ -479,7 +569,8 @@ export default {
     finalizar(idproposta) {
       this.$swal({
         title: "Tem certeza que quer finalizar?",
-        text: "Obs: só finalize quando o serviço acabar, pois abrirá espaço para o usuário lhe avaliar.",
+        text:
+          "Obs: só finalize quando o serviço acabar, pois abrirá espaço para o usuário lhe avaliar.",
         type: "info",
         showCancelButton: true,
         confirmButtonText: "Finalizar",
@@ -506,16 +597,16 @@ export default {
         }
       });
     },
-    paginaComNumero(id){
+    paginaComNumero(id) {
       this.page = id;
     },
-    proximo(){
-      this.page +=1;
+    proximo() {
+      this.page += 1;
     },
-    anterior(){
-      this.page-=1;
+    anterior() {
+      this.page -= 1;
     },
-    ultimaPagina(inteiro){
+    ultimaPagina(inteiro) {
       this.page = inteiro;
     }
   }
@@ -527,12 +618,12 @@ export default {
 .img {
   border-radius: 100%;
 }
-.button-solicita{
+.button-solicita {
   background: rgb(0, 214, 132);
   font-weight: bold;
-  color:white;
+  color: white;
 }
-.button-solicita:hover{
-  color:white;
+.button-solicita:hover {
+  color: white;
 }
 </style>

@@ -53,6 +53,7 @@
                           <img
                             width="60%"
                             height="10%"
+                            style="height:140px"
                             :src="`http://graphql.me/perfilCli/${prop.user_envia.imagem}`"
                             alt="Placeholder image"
                           >

@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- BREADCRUMB -->
-    <img src="../../assets/frontendimages/background5.png" data-aos="slide-down" data-aos-duration="1000" alt="" style="position:absolute;top:0;width:auto;height:auto;max-width:120%;z-index:-1">
+    <!-- <img src="../../assets/frontendimages/background5.png" data-aos="slide-down" data-aos-duration="1000" alt="" style="position:absolute;top:0;width:auto;height:auto;max-width:120%;z-index:-1"> -->
     <nav
       class="breadcrumb column is-offset-1-desktop is-offset-1-mobile is-offset-1-tablet"
       aria-label="breadcrumbs" style="font-weight:bold"
@@ -29,7 +29,7 @@
     <h3
       class="column is-8-desktop is-10-tablet is-offset-2-desktop is-offset-1-tablet is-full-mobile"
       style="text-align:center;color:black;font-size:25pt;text-transform:uppercase"
-    ><b>Abaixo estão suas propostas para as categorias de profissionais.</b></h3>
+    ><b>Abaixo estão suas propostas para as categorias de profissionais.</b></h3><br><br>
     <br>
     <div v-if="this.cli.clientForUserId">
       <div v-if="this.cli.clientForUserId[0]">
@@ -45,7 +45,7 @@
                   <div
                     class="column is-10-desktop is-offset-1-desktop is-12-tablet is-full-mobile"
                   >
-                    <div class="card" style="border:1px solid white">
+                    <div class="card" style="border:1px solid white" data-aos="zoom-out" data-aos-offset="-200" data-aos-duration="1000">
                       <div class="columns column">
                         <div class="column is-3-desktop is-4-tablet is-6-mobile is-offset-3-mobile">
                           <div class="column">
@@ -67,8 +67,8 @@
                           </div>
                         </div>
                         <div class="column is-9-desktop is-full-mobile">
-                          <div class="columns" style="margin-bottom:25px">
-                            <div class="column is-9-desktop is-9-tablet is-12-mobile" style="margin-bottom:-20px">
+                          <div class="columns" style="margin-bottom:0px;margin-top:1%">
+                            <div class="column is-9-desktop is-9-tablet is-12-mobile" style="margin-bottom:10px">
                               <div style="color:black;text-transform:uppercase;font-size:16pt;text-align:justify"><b>{{prop.titulo}}</b></div>
                             </div>
                             <div class="column is-4-desktop" v-if="prop.status === 0 && prop.lances[0]">
@@ -102,7 +102,7 @@
                               </ApolloQuery>
                             </div>
                             <div class="column overlay3" v-if="prop.status === 0 && !prop.lances[0]">
-                              <button style="border-radius:0px;text-align:center" class="btnhover column is-12-desktop is-12-tablet is-full-mobile" @click.prevent="editar(prop.id)"><i class="material-icons" style="margin-right:5px;font-size:12pt">edit</i><span>Editar</span></button>
+                              <button style="border-radius:0px;text-align:center;margin-top:-20px" class="btnhover column is-4-desktop is-offset-8-desktop is-12-tablet is-full-mobile" @click.prevent="editar(prop.id)"><i class="material-icons" style="margin-right:5px;font-size:12pt;color:blue">edit</i><span></span></button>
                             </div>
                           </div>
                           <div class=" overlay4" v-if="prop.status === 0 && !prop.lances[0]" style="margin-top:-20px;margin-bottom:30px">

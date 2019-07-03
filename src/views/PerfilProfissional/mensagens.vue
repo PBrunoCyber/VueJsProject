@@ -325,7 +325,7 @@ export default {
         envia_resposta:"",
         date:"",
         mensagem_id:"",
-        informacoes:{
+        informacoes:{ 
           mensagem_id:"",
           user_envia_id:"",
           user_recebe_id:""
@@ -424,8 +424,8 @@ export default {
               variables:{
                 reply: this.envia_resposta,
                 date:this.date,
-                user_envia_id:this.informacoes.user_envia_id,
-                user_recebe_id:this.informacoes.user_recebe_id,
+                user_envia_id:this.informacoes.user_recebe_id,
+                user_recebe_id:this.informacoes.user_envia_id,
                 mensagem_id:this.informacoes.mensagem_id
               }
             })

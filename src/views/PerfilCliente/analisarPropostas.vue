@@ -40,7 +40,7 @@
       style="color:black;text-align:center;text-transform:uppercase;font-size:25pt"
     ><b>Veja abaixo as respostas dos profissionais para sua demanda</b></h3>
     
-    <div class="column is-6-desktop is-offset-3-desktop" style="border-bottom:1px solid black;margin-top:-10px"></div><br><br><br>
+    <div class="column is-6-desktop is-offset-3-desktop"></div><br><br>
     <div v-if="this.cli.clientForUserId">
       <ApolloQuery
         :query="require('@/graphql/queries/propostaCatForId.gql')"

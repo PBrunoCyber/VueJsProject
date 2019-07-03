@@ -1,9 +1,12 @@
 <template>
   <div class="about" v-if="this.ping">
     <div v-if="this.ping.imageForUserId && this.ping.imageForUserId[0]">
-      <div style="display:none" v-if="this.ping.imageForUserId[0].category.name === 'Marceneiro' || this.ping.imageForUserId[0].category.name === 'Diarista'">{{this.colorName = 'white'}}</div>
+      <div
+        style="display:none"
+        v-if="this.ping.imageForUserId[0].category.name === 'Marceneiro' || this.ping.imageForUserId[0].category.name === 'Diarista'"
+      >{{this.colorName = 'white'}}</div>
       <div style="display:none" v-else>{{this.colorName = 'black'}}</div>
-    </div>  
+    </div>
     <!-- BREADCRUMB OVERLAY5 -->
     <!-- <nav
       class="breadcrumb column is-offset-1-desktop is-offset-1-mobile is-offset-1-tablet overlay5"
@@ -30,20 +33,25 @@
         </li>
         <li></li>
       </ul>
-    </nav> -->
+    </nav>-->
     <!-- FIM DO BREADCRUMB 5 -->
 
     <!-- BREADCRUMB OVERLAY 6 -->
     <nav
-      class=" column is-offset-1-desktop is-offset-1-mobile is-offset-1-tablet overlay6"
-      aria-label="breadcrumbs" style="margin-bottom:20px;margin-top:10px"
+      class="column is-offset-1-desktop is-offset-1-mobile is-offset-1-tablet overlay6"
+      aria-label="breadcrumbs"
+      style="margin-bottom:20px;margin-top:10px"
     >
       <ul>
         <li>
           <a style="color:hsl(171, 100%, 41%)" @click="openNavCelular()">
             <b style="font-size:14pt">
               <div class="columns is-mobile">
-                <i class="material-icons" aria-hidden="true" style="margin-top:2px;margin-right:10px">face</i>
+                <i
+                  class="material-icons"
+                  aria-hidden="true"
+                  style="margin-top:2px;margin-right:10px"
+                >face</i>
                 <div>Perfil</div>
               </div>
             </b>
@@ -57,14 +65,23 @@
     <!-- OVERLAY 6 -->
     <div id="mySidenavCelular" class="sidenavCelular overlay6">
       <a href="javascript:void(0)" class="closebtn" @click="closeNavCelular()">
-        <i style="font-size:40px;color:black;margin-top:20px;margin-left:-50px" class="material-icons">close</i>
-      </a><br>
+        <i
+          style="font-size:40px;color:black;margin-top:20px;margin-left:-50px"
+          class="material-icons"
+        >close</i>
+      </a>
+      <br />
       <!-- Verificação de Usuário Adcionou ou não informações -->
       <div v-if="!this.ping.imageForUserId[0]" style="margin-top:-20px" align="center">
         <div for="q" class="column">
           <div>
             <figure class="image is-128x128">
-              <img class="img" style="height:120px" :src="`http://graphql.me/imagem/noimage.png`" alt="conver image">
+              <img
+                class="img"
+                style="height:120px"
+                :src="`http://graphql.me/imagem/noimage.png`"
+                alt="conver image"
+              />
             </figure>
           </div>
         </div>
@@ -74,17 +91,26 @@
         <div for="q" class="column">
           <div>
             <figure class="image is-128x128">
-              <img class="img" style="height:120px"
+              <img
+                class="img"
+                style="height:120px"
                 :src="`http://graphql.me/imagem/${this.ping.imageForUserId[0].imagem}`"
                 alt="conver image"
-              >
+              />
             </figure>
           </div>
         </div>
       </div>
       <!-- Se ele adcionou uma foto então faz isso -->
       <div class="column" v-if="this.ping.imageForUserId[0]" style="margin-top:-20px">
-        <div align="center" style="color:black"><br><b>{{me.name}}</b><br>{{me.email}}<br><br></div>
+        <div align="center" style="color:black">
+          <br />
+          <b>{{me.name}}</b>
+          <br />
+          {{me.email}}
+          <br />
+          <br />
+        </div>
         <div class="column card-footer">
           <router-link
             class="b"
@@ -100,13 +126,19 @@
                 <i class="material-icons" aria-hidden="true">move_to_inbox</i> Ver Solicitações
               </div>
               <div class="column">
-                <ApolloQuery :query="require('@/graphql/queries2/countStatus.gql')" :variables="{user_recebe:ping.imageForUserId[0].id}">
+                <ApolloQuery
+                  :query="require('@/graphql/queries2/countStatus.gql')"
+                  :variables="{user_recebe:ping.imageForUserId[0].id}"
+                >
                   <template slot-scope="{ result: { data, loading },isLoading }">
-                  <div v-if="isLoading">Loading...</div>
+                    <div v-if="isLoading">Loading...</div>
                     <div v-else>
                       <div v-if="data">
                         <div v-if="data.countStatus !== 0  ">
-                          <span class="tag is-success" style="font-weight:bold">{{data.countStatus}} New</span>
+                          <span
+                            class="tag is-success"
+                            style="font-weight:bold"
+                          >{{data.countStatus}} New</span>
                         </div>
                       </div>
                     </div>
@@ -130,10 +162,7 @@
           </router-link>
         </div>
         <div class="column card-footer">
-          <router-link
-            class="b"
-            :to="`/page/profissional/mensagens`"
-          >
+          <router-link class="b" :to="`/page/profissional/mensagens`">
             <i class="material-icons">send</i> Mensagens para você
           </router-link>
         </div>
@@ -141,7 +170,12 @@
       <!-- Se ele não adicionou nada então manda adicionar -->
       <div for="q" class="column" align="center" v-if="!this.ping.imageForUserId[0]">
         <div align="center">
-          <br><b>{{me.name}}</b><br>{{me.email}}<br><br>
+          <br />
+          <b>{{me.name}}</b>
+          <br />
+          {{me.email}}
+          <br />
+          <br />
           <div class="column card-footer">
             <router-link
               class="b"
@@ -155,8 +189,8 @@
             <router-link :to="`/page/profissional/propostascategory`" class="b">
               <i class="material-icons" aria-hidden="true">drafts</i> Ver Propostas para sua categoria!
             </router-link>
-            </div>
-            <div class="column card-footer">
+          </div>
+          <div class="column card-footer">
             <router-link class="b" :to="`/page/profissional/solicitacoes`">
               <i class="material-icons" aria-hidden="true">move_to_inbox</i> Ver Solicitações
             </router-link>
@@ -168,133 +202,175 @@
 
     <!-- DIV MASTER -->
     <div class="columns" v-if="this.ping.imageForUserId">
-      
       <!-- OVERLAY 5 -->
       <div
         id="mySidenav"
         class="column is-3-desktop is-4-tablet is-full-mobile sidenav overlay5"
         style="margin-top:25px;background:hsla(0, 7%, 97%, 0.952);padding-top:40px"
       >
-          <div class="columns" style="margin:-30px -30px 0px -20px;padding-top:10px;padding-right:20px">
-            <div class="column is-6-desktop is-offset-1">
+        <div
+          class="columns"
+          style="margin:-30px -30px 0px -20px;padding-top:10px;padding-right:20px"
+        >
+          <div class="column is-6-desktop is-offset-1">
+            <div class="columns">
+              <div class="column">
+                <b>
+                  <i
+                    class="material-icons"
+                    style="font-size:20pt;color:black"
+                    aria-hidden="true"
+                  >face</i>
+                </b>
+              </div>
+              <div class="column" style="margin-top:0px;margin-left:-60px">
+                <span style="color:black;text-transform:uppercase">
+                  <b>Perfil</b>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="column is-offset-1-desktop is-2-desktop is-2-mobile is-2-tablet"
+            style="margin-top:-24px;margin-left:20px"
+          >
+            <a
+              href="javascript:void(0)"
+              style="color:black;font-size:30pt"
+              class="closebtn"
+              @click="closeNav()"
+            >&times;</a>
+          </div>
+        </div>
+        <br />
+        <br />
+        <!-- Verificação de Usuário Adcionou ou não informações -->
+        <div v-if="!this.ping.imageForUserId[0]" style="margin-top:-20px" align="center">
+          <div for="q" class="column">
+            <div>
+              <figure class="image is-128x128">
+                <img
+                  style="height:140px"
+                  :src="`http://graphql.me/imagem/noimage.png`"
+                  alt="conver image"
+                />
+              </figure>
+            </div>
+          </div>
+        </div>
+        <!-- Se o usuário cadastrou as informações e não tem foto no perfil -->
+        <div v-if="this.ping.imageForUserId[0]" style="margin-top:-20px" align="center">
+          <div for="q" class="column">
+            <div>
+              <figure class="image is-128x128">
+                <img
+                  style="height:140px"
+                  :src="`http://graphql.me/imagem/${this.ping.imageForUserId[0].imagem}`"
+                  alt="conver image"
+                />
+              </figure>
+            </div>
+          </div>
+        </div>
+        <!-- Se ele adcionou uma foto então faz isso -->
+        <div class="column" v-if="this.ping.imageForUserId[0]" style="margin-top:-20px">
+          <div align="center" style="color:black">
+            <br />
+            <b>{{me.name}}</b>
+            <br />
+            {{me.email}}
+            <br />
+            <br />
+          </div>
+          <div class="column card-footer">
+            <router-link
+              class="b"
+              :to="`/page/profissional/${this.ping.imageForUserId[0].id}/editImage/${me.id}`"
+            >
+              <i class="material-icons">edit</i> Editar Perfil
+            </router-link>
+          </div>
+          <div class="column card-footer">
+            <router-link :to="`/page/profissional/solicitacoes`" class="b">
               <div class="columns">
+                <div class="column is-9-desktop">
+                  <i class="material-icons" aria-hidden="true">move_to_inbox</i> Ver Solicitações
+                </div>
+                <!-- NOTIFICAÇÃO -->
                 <div class="column">
-                  <b><i class="material-icons" style="font-size:20pt;color:black" aria-hidden="true">face</i></b>
-                </div>
-                <div class="column" style="margin-top:0px;margin-left:-60px">
-                  <span style="color:black;text-transform:uppercase"><b>Perfil</b></span>
-                </div>
-              </div>
-            </div>
-            <div class="column is-offset-1-desktop is-2-desktop is-2-mobile is-2-tablet" style="margin-top:-24px;margin-left:20px">
-              <a href="javascript:void(0)" style="color:black;font-size:30pt" class="closebtn" @click="closeNav()">&times;</a>
-            </div>
-          </div><br><br>
-          <!-- Verificação de Usuário Adcionou ou não informações -->
-          <div v-if="!this.ping.imageForUserId[0]" style="margin-top:-20px" align="center">
-            <div for="q" class="column">
-              <div>
-                <figure class="image is-128x128">
-                  <img  style="height:140px" :src="`http://graphql.me/imagem/noimage.png`" alt="conver image">
-                </figure>
-              </div>
-            </div>
-          </div>
-          <!-- Se o usuário cadastrou as informações e não tem foto no perfil -->
-          <div v-if="this.ping.imageForUserId[0]" style="margin-top:-20px" align="center">
-            <div for="q" class="column">
-              <div>
-                <figure class="image is-128x128">
-                  <img  style="height:140px"
-                    :src="`http://graphql.me/imagem/${this.ping.imageForUserId[0].imagem}`"
-                    alt="conver image"
+                  <ApolloQuery
+                    :query="require('@/graphql/queries2/countStatus.gql')"
+                    :variables="{user_recebe:ping.imageForUserId[0].id}"
                   >
-                </figure>
+                    <template slot-scope="{ result: { data, loading },isLoading }">
+                      <div v-if="isLoading">Loading...</div>
+                      <div v-else>
+                        <div v-if="data">
+                          <div v-if="data.countStatus !== 0  ">
+                            <span
+                              class="tag is-success"
+                              style="font-weight:bold"
+                            >{{data.countStatus}} New</span>
+                          </div>
+                        </div>
+                      </div>
+                    </template>
+                  </ApolloQuery>
+                </div>
               </div>
-            </div>
+            </router-link>
           </div>
-          <!-- Se ele adcionou uma foto então faz isso -->
-          <div class="column" v-if="this.ping.imageForUserId[0]" style="margin-top:-20px">
-            <div align="center" style="color:black"><br><b>{{me.name}}</b><br>{{me.email}}<br><br></div>
+          <div class="column card-footer">
+            <router-link :to="`/page/profissional/propostascategory`" class="b">
+              <i class="material-icons" aria-hidden="true">drafts</i> Ver Propostas para sua categoria
+            </router-link>
+          </div>
+          <div class="column card-footer">
+            <router-link
+              class="b"
+              :to="`/page/profissional/portifolio/${this.ping.imageForUserId[0].id}`"
+            >
+              <i class="material-icons">add_circle</i> Adicionar portifolios
+            </router-link>
+          </div>
+          <div class="column card-footer">
+            <router-link class="b" :to="`/page/profissional/mensagens`">
+              <i class="material-icons">send</i> Mensagens para você
+            </router-link>
+          </div>
+        </div>
+        <!-- Se ele não adicionou nada então manda adicionar -->
+        <div for="q" class="column" v-if="!this.ping.imageForUserId[0]">
+          <div>
+            <div align="center" style="color:black">
+              <br />
+              <b>{{me.name}}</b>
+              <br />
+              {{me.email}}
+              <br />
+              <br />
+            </div>
             <div class="column card-footer">
               <router-link
                 class="b"
-                :to="`/page/profissional/${this.ping.imageForUserId[0].id}/editImage/${me.id}`"
+                :to="`/page/profissional/${me.id}/imagem`"
+                style="text-decoration: none"
               >
-                <i class="material-icons">edit</i> Editar Perfil
-              </router-link>
-            </div>
-            <div class="column card-footer">
-              <router-link :to="`/page/profissional/solicitacoes`" class="b">
-                <div class="columns">
-                  <div class="column is-9-desktop">
-                    <i class="material-icons" aria-hidden="true">move_to_inbox</i> Ver Solicitações
-                  </div>
-                  <!-- NOTIFICAÇÃO -->
-                  <div class="column">
-                    <ApolloQuery :query="require('@/graphql/queries2/countStatus.gql')" :variables="{user_recebe:ping.imageForUserId[0].id}">
-                      <template slot-scope="{ result: { data, loading },isLoading }">
-                      <div v-if="isLoading">Loading...</div>
-                        <div v-else>
-                          <div v-if="data">
-                            <div v-if="data.countStatus !== 0  ">
-                              <span class="tag is-success" style="font-weight:bold">{{data.countStatus}} New</span>
-                            </div>
-                          </div>
-                        </div>
-                      </template>
-                    </ApolloQuery>
-                  </div>
-                </div>
+                <i class="material-icons">add_circle</i> Adicionar Informações
               </router-link>
             </div>
             <div class="column card-footer">
               <router-link :to="`/page/profissional/propostascategory`" class="b">
-                <i class="material-icons" aria-hidden="true">drafts</i> Ver Propostas para sua categoria
+                <i class="material-icons" aria-hidden="true">drafts</i> Ver Propostas para sua categoria!
               </router-link>
             </div>
             <div class="column card-footer">
-              <router-link
-                class="b"
-                :to="`/page/profissional/portifolio/${this.ping.imageForUserId[0].id}`"
-              >
-                <i class="material-icons">add_circle</i> Adicionar portifolios
-              </router-link>
-            </div>
-            <div class="column card-footer">
-              <router-link
-                class="b"
-                :to="`/page/profissional/mensagens`"
-              >
-                <i class="material-icons">send</i> Mensagens para você
+              <router-link class="b" :to="`/page/profissional/solicitacoes`">
+                <i class="material-icons" aria-hidden="true">move_to_inbox</i> Ver Solicitações
               </router-link>
             </div>
           </div>
-          <!-- Se ele não adicionou nada então manda adicionar -->
-          <div for="q" class="column" v-if="!this.ping.imageForUserId[0]">
-            <div>
-              <div align="center" style="color:black"><br><b>{{me.name}}</b><br>{{me.email}}<br><br></div>
-              <div class="column card-footer">
-                <router-link
-                  class="b"
-                  :to="`/page/profissional/${me.id}/imagem`"
-                  style="text-decoration: none"
-                >
-                  <i class="material-icons">add_circle</i> Adicionar Informações
-                </router-link>
-              </div>
-              <div class="column card-footer">
-                <router-link :to="`/page/profissional/propostascategory`" class="b">
-                  <i class="material-icons" aria-hidden="true">drafts</i> Ver Propostas para sua categoria!
-                </router-link>
-              </div>
-              <div class="column card-footer">
-                <router-link class="b" :to="`/page/profissional/solicitacoes`">
-                  <i class="material-icons" aria-hidden="true">move_to_inbox</i> Ver Solicitações
-                </router-link>
-              </div>
-            </div>
-          </div>
+        </div>
       </div>
       <!-- FIM DO OVERLAY 5 -->
 
@@ -304,26 +380,27 @@
         v-if="me && this.ping.imageForUserId"
       >
         <div class="column is-12-desktop is-12-tablet is-full-mobile">
-          
           <!-- OPEN NAV PARA CELULAR -->
           <nav
-              class="breadcrumb overlay5"
-              aria-label="breadcrumbs" style="margin-left:40px" v-if="this.arrayRed.inicio !=='is-9-desktop'"
+            class="breadcrumb overlay5"
+            aria-label="breadcrumbs"
+            style="margin-left:40px"
+            v-if="this.arrayRed.inicio !=='is-9-desktop'"
           >
-              <ul>
-                <li>
-                  <a style="color:hsl(171, 100%, 41%)" @click.prevent="openNav()">
-                    <b style="font-size:14pt">
-                      <div class="columns">
-                          <i class="material-icons" aria-hidden="true" style="margin-right:10px">face</i>
-                          <div>Perfil</div>
-                      </div>
-                    </b>
-                  </a>
-                </li>
-              </ul>
+            <ul>
+              <li>
+                <a style="color:hsl(171, 100%, 41%)" @click.prevent="openNav()">
+                  <b style="font-size:14pt">
+                    <div class="columns">
+                      <i class="material-icons" aria-hidden="true" style="margin-right:10px">face</i>
+                      <div>Perfil</div>
+                    </div>
+                  </b>
+                </a>
+              </li>
+            </ul>
           </nav>
-          
+
           <!-- Se não estiver cadastrado mostra class box normal -->
           <div v-if="!this.ping.imageForUserId[0]">
             <div class="column box">
@@ -337,7 +414,7 @@
                   style="margin-top:1em;margin-bottom:1em;text-align:center;margin-left:35%;color:black"
                 >
                   {{this.me.name}}
-                  <br>
+                  <br />
                 </div>
               </div>
             </div>
@@ -349,11 +426,10 @@
               :style="`padding:0%;background-image:url('http://graphql.me/categoryImage/${this.ping.imageForUserId[0].category.image}');background-repeat:no-repeat;background-size:100% 200%`"
             >
               <div>
-                <div 
+                <div
                   :class="`column is-8-desktop is-8-tablet ${this.arrayRed.name} title is-2 overlay3`"
                   :style="`color:${this.colorName};padding:5%`"
-                >{{this.me.name}}
-                </div>
+                >{{this.me.name}}</div>
                 <div class="overlay4" style="padding:3%">
                   <div
                     class="title is-2 column is-10-mobile"
@@ -379,24 +455,29 @@
                 >
               </div>
             </div>
-          </div> -->
+          </div>-->
           <!-- IGNORA QUESTAO DE DISPOSIÇÃO -->
           <!-- <div class="overlay4 column">
             <br>
-          </div> -->
+          </div>-->
           <!-- SE NÂO TIVER SIDO CADASTRADO! -->
-         <div v-if="!this.ping.imageForUserId[0]">
-            <div for="q" :class="`column is-2-desktop is-offset-1-desktop is-2-tablet is-offset-1-tablet is-3-mobile`">
-                <img
-                  class="img"
-                  width="150px" 
-                  :src="`http://graphql.me/imagem/noimage.png`"
-                  alt="conver image"
-                  style="position:absolute;margin-top:-10.3em"
-                >
+          <div v-if="!this.ping.imageForUserId[0]">
+            <div
+              for="q"
+              :class="`column is-2-desktop is-offset-1-desktop is-2-tablet is-offset-1-tablet is-3-mobile`"
+            >
+              <img
+                class="img"
+                width="150px"
+                :src="`http://graphql.me/imagem/noimage.png`"
+                alt="conver image"
+                style="position:absolute;margin-top:-10.3em"
+              />
             </div>
-          </div> 
-          <div class="overlay4"><br></div>
+          </div>
+          <div class="overlay4">
+            <br />
+          </div>
           <!-- COLUNA QUE APRESENTAS AS INFORMAÇÕES DO PROFISSIONAL -->
           <div class="column box is-12-tablet" style="margin-top:-0em">
             <div class="overlay3">
@@ -436,9 +517,9 @@
             </div>
             <div class="card-footer"></div>
             <div v-if="this.ping.imageForUserId[0]">
-              <br>
+              <br />
               <div class="column">
-                <b>Bio: </b>
+                <b>Bio:</b>
                 {{this.ping.imageForUserId[0].ramo}}
               </div>
               <div class="column">
@@ -500,7 +581,7 @@
                   <div v-if="isLoading">Loading...</div>
                   <div v-else>
                     <div v-if="data">
-                      <br>
+                      <br />
                       <div v-for="proplimit of data.propostaForCatLimit" :key="proplimit.id">
                         <div class="columns" style="margin-left:1%">
                           <div :class="`column is-12-desktop is-12-tablet`">
@@ -511,10 +592,11 @@
                               >
                                 <img
                                   class="img"
+                                  style="height:90px"
                                   :src="`http://graphql.me/perfilcli/${proplimit.user_envia.imagem}`"
                                   alt="Placeholder image"
                                   width="70%"
-                                >
+                                />
                                 <div class>
                                   <b>{{proplimit.user_envia.user.name}}</b>
                                 </div>
@@ -640,7 +722,7 @@
                                 <b>Previsão:</b>
                                 {{proplimit.tempo}}
                               </div>
-                              <br>
+                              <br />
                             </div>
                             <!-- DESCRIÇÃO PARA CELULAR-->
                             <div
@@ -764,13 +846,13 @@
                           </div>
                         </div>
                         <div class="card-footer"></div>
-                        <br>
+                        <br />
                       </div>
                       <div v-if="data && data.propostaForCatLimit">
                         <div class="column" v-if="!data.propostaForCatLimit[0]">
                           Não há propostas a sua categoria ainda!
-                          <br>
-                          <br>
+                          <br />
+                          <br />
                           <div class="card-footer"></div>
                         </div>
                         <router-link :to="`/page/profissional/propostascategory`">
@@ -809,7 +891,7 @@
                   <div v-if="isLoading">Loading...</div>
                   <div v-else>
                     <div v-if="data">
-                      <br>
+                      <br />
                       <div v-for="proposta of data.propostaRecebe.data" :key="proposta.id">
                         <div class="columns" style="margin-left:1%">
                           <div :class="`column is-12-desktop is-12-tablet`">
@@ -820,10 +902,11 @@
                               >
                                 <img
                                   class="img"
+                                  style="height:90px"
                                   :src="`http://graphql.me/perfilcli/${proposta.user_envia.imagem}`"
                                   alt="Placeholder image"
                                   width="70%"
-                                >
+                                />
                                 <div class>
                                   <b>{{proposta.user_envia.user.name}}</b>
                                 </div>
@@ -927,7 +1010,7 @@
                                 <b>Previsão:</b>
                                 {{proposta.tempo}}
                               </div>
-                              <br>
+                              <br />
                             </div>
                             <!-- DESCRIÇÃO PARA CELULAR-->
                             <div
@@ -972,46 +1055,84 @@
                           </div>
                         </div>
                         <div class="card-footer"></div>
-                        <br>
+                        <br />
                       </div>
                       <!-- PAGINAÇÃO -->
                       <div v-if="data && data.propostaRecebe.data">
-                        <div class="columns is-mobile column level-item" v-if="data.propostaRecebe.data[0]">
+                        <div
+                          class="columns is-mobile column level-item"
+                          v-if="data.propostaRecebe.data[0]"
+                        >
                           <!-- VOLTAR -->
                           <div v-if="data.propostaRecebe.paginatorInfo.currentPage !== 1">
-                            <a class="button button-solicita" style="margin:5px" @click.prevent="anterior()"><i class="material-icons">keyboard_arrow_left</i></a>
+                            <a
+                              class="button button-solicita"
+                              style="margin:5px"
+                              @click.prevent="anterior()"
+                            >
+                              <i class="material-icons">keyboard_arrow_left</i>
+                            </a>
                           </div>
                           <div v-else>
-                            <a class="button" style="margin:5px;background:#ccc" disabled><i class="material-icons">keyboard_arrow_left</i></a>
+                            <a class="button" style="margin:5px;background:#ccc" disabled>
+                              <i class="material-icons">keyboard_arrow_left</i>
+                            </a>
                           </div>
                           <!-- FOR PARA PERCORRER E MOSTAR AS PAGINAS -->
                           <div v-for="p of data.propostaRecebe.paginatorInfo.lastPage" :key="p.id">
                             <!-- SÓ MOSTRA OS 10 PRIMEIROS NÚMEROS PARA NÃO POLUIR A TELA -->
                             <div v-if="p <= 10">
-                              <div class="" v-if="page === p">  
-                                <a class="button" style="margin:5px;background:rgb(71, 71, 71);color:white"><b>{{p}}</b></a>
+                              <div class v-if="page === p">
+                                <a
+                                  class="button"
+                                  style="margin:5px;background:rgb(71, 71, 71);color:white"
+                                >
+                                  <b>{{p}}</b>
+                                </a>
                               </div>
                               <div v-else>
-                                <a class="button button-solicita" style="margin:5px" @click.prevent="paginaComNumero(p)">{{p}}</a>
+                                <a
+                                  class="button button-solicita"
+                                  style="margin:5px"
+                                  @click.prevent="paginaComNumero(p)"
+                                >{{p}}</a>
                               </div>
                             </div>
                           </div>
                           <!-- TRES PONTOS COM ULTIMA PAGINA -->
-                          <b style="margin-top:15px;margin-left:5px;margin-right:5px" v-if="data.propostaRecebe.paginatorInfo.lastPage > 11">... </b>
+                          <b
+                            style="margin-top:15px;margin-left:5px;margin-right:5px"
+                            v-if="data.propostaRecebe.paginatorInfo.lastPage > 11"
+                          >...</b>
                           <div v-if="data.propostaRecebe.paginatorInfo.lastPage > 10">
                             <div v-if="page === data.propostaRecebe.paginatorInfo.lastPage">
-                              <a class="button" style="margin:5px;background:rgb(71, 71, 71);color:white">{{data.propostaRecebe.paginatorInfo.lastPage}}</a>
+                              <a
+                                class="button"
+                                style="margin:5px;background:rgb(71, 71, 71);color:white"
+                              >{{data.propostaRecebe.paginatorInfo.lastPage}}</a>
                             </div>
                             <div v-else>
-                              <a class="button button-solicita" style="margin:5px" @click.prevent="ultimaPagina(data.propostaRecebe.paginatorInfo.lastPage)">{{data.propostaRecebe.paginatorInfo.lastPage}}</a>
+                              <a
+                                class="button button-solicita"
+                                style="margin:5px"
+                                @click.prevent="ultimaPagina(data.propostaRecebe.paginatorInfo.lastPage)"
+                              >{{data.propostaRecebe.paginatorInfo.lastPage}}</a>
                             </div>
                           </div>
                           <!-- PRÓXIMO -->
                           <div v-if="data.propostaRecebe.paginatorInfo.hasMorePages">
-                            <a class="button button-solicita" style="margin:5px" @click.prevent="proximo()"><i class="material-icons">keyboard_arrow_right</i></a>
+                            <a
+                              class="button button-solicita"
+                              style="margin:5px"
+                              @click.prevent="proximo()"
+                            >
+                              <i class="material-icons">keyboard_arrow_right</i>
+                            </a>
                           </div>
                           <div v-else>
-                            <a class="button" style="margin:5px;background:#ccc" disabled><i class="material-icons">keyboard_arrow_right</i></a>
+                            <a class="button" style="margin:5px;background:#ccc" disabled>
+                              <i class="material-icons">keyboard_arrow_right</i>
+                            </a>
                           </div>
                         </div>
                       </div>
@@ -1051,7 +1172,7 @@
                   <div v-if="isLoading">Loading...</div>
                   <div v-else>
                     <div v-if="data">
-                      <br>
+                      <br />
                       <div v-for="avalia of data.avaliacaoForAvaliadoId" :key="avalia.id">
                         <div class="columns" style="margin-left:1%">
                           <div :class="`column is-8-desktop is-7-tablet`">
@@ -1062,10 +1183,11 @@
                               >
                                 <img
                                   class="img"
+                                  style="height:120px"
                                   :src="`http://graphql.me/perfilcli/${avalia.user_avalia.imagem}`"
                                   alt="Placeholder image"
                                   width="70%"
-                                >
+                                />
                                 <div class>
                                   <b>{{avalia.user_avalia.user.name}}</b>
                                 </div>
@@ -1087,35 +1209,35 @@
                                       class="column is-3-desktop is-4-tablet is-4-mobile"
                                       src="@/assets/estrela5.png"
                                       alt="cover image"
-                                    >
+                                    />
                                   </div>
                                   <div v-if="avalia.estrela === 4">
                                     <img
                                       class="column is-3-desktop is-4-tablet is-4-mobile"
                                       src="@/assets/estrela4.png"
                                       alt="cover image"
-                                    >
+                                    />
                                   </div>
                                   <div v-if="avalia.estrela === 3">
                                     <img
                                       class="column is-3-desktop is-4-tablet is-4-mobile"
                                       src="@/assets/estrela3.png"
                                       alt="cover image"
-                                    >
+                                    />
                                   </div>
                                   <div v-if="avalia.estrela === 2">
                                     <img
                                       class="column is-3-desktop is-4-tablet is-4-mobile"
                                       src="@/assets/estrela2.png"
                                       alt="cover image"
-                                    >
+                                    />
                                   </div>
                                   <div v-if="avalia.estrela === 1">
                                     <img
                                       class="column is-3-desktop is-4-tablet is-4-mobile"
                                       src="@/assets/estrela1.png"
                                       alt="cover image"
-                                    >
+                                    />
                                   </div>
                                   <div style="margin-top:-20px">
                                     <div
@@ -1149,7 +1271,7 @@
                           </div>
                         </div>
                         <div class="card-footer"></div>
-                        <br>
+                        <br />
                       </div>
                     </div>
                     <div v-if="data && data.avaliacaoForAvaliadoId">
@@ -1187,10 +1309,12 @@
                   <div v-if="isLoading">Loading...</div>
                   <div v-else>
                     <div v-if="data">
-                      <br>
+                      <br />
                       <div v-for="portifolio of data.portifolioForImagem" :key="portifolio.id">
                         <div class="columns" style="margin-left:1%">
-                          <div :class="`column is-10-desktop is-10-tablet is-12-mobile is-5-tablet`">
+                          <div
+                            :class="`column is-10-desktop is-10-tablet is-12-mobile is-5-tablet`"
+                          >
                             <div class="columns is-mobile">
                               <div
                                 class="column is-3-desktop is-3-tablet is-4-mobile"
@@ -1200,14 +1324,15 @@
                                   :src="`http://graphql.me/portifolio/${portifolio.imagens}`"
                                   alt="Placeholder image"
                                   width="100%"
-                                >
+                                />
                               </div>
                               <div class="column is-12-desktop is-12-tablet is-full-mobile">
                                 <div class="column is-12-desktop is-10-tablet is-9-mobile">
                                   <b>{{portifolio.titulo}}</b>
                                 </div>
                                 <div
-                                  class="column overlay3 is-11-desktop is-11-tablet" style="text-align:justify"
+                                  class="column overlay3 is-11-desktop is-11-tablet"
+                                  style="text-align:justify"
                                 >{{portifolio.descricao}}</div>
                               </div>
                             </div>
@@ -1218,7 +1343,7 @@
                           </div>
                         </div>
                         <div class="card-footer"></div>
-                        <br>
+                        <br />
                       </div>
                     </div>
                     <div v-if="data && data.portifolioForImagem">
@@ -1252,16 +1377,16 @@ export default {
       me: null,
       k: null,
       ping: null,
-      count:3,
-      page:1,
-      colorName:"",
+      count: 3,
+      page: 1,
+      colorName: "",
       arrayRed: {
         inicio: "is-9-desktop",
         image: "is-3-desktop",
         name: "is-offset-1-desktop",
         propImage: "is-2-desktop",
         propDescricao: "is-9-desktop"
-      },
+      }
     };
   },
   apollo: {
@@ -1307,8 +1432,8 @@ export default {
       },
       update(data) {
         // Bus.$emit('ok',data.imageForUserId[0].id);
-          this.ping = data;
-          return this.ping;
+        this.ping = data;
+        return this.ping;
       }
     }
   },
@@ -1343,16 +1468,16 @@ export default {
     closeNavCelular() {
       document.getElementById("mySidenavCelular").style.width = "0px";
     },
-    paginaComNumero(id){
+    paginaComNumero(id) {
       this.page = id;
     },
-    proximo(){
-      this.page +=1;
+    proximo() {
+      this.page += 1;
     },
-    anterior(){
-      this.page-=1;
+    anterior() {
+      this.page -= 1;
     },
-    ultimaPagina(inteiro){
+    ultimaPagina(inteiro) {
       this.page = inteiro;
     }
   }
@@ -1386,14 +1511,12 @@ export default {
   }
 }
 
-
-.button-solicita{
+.button-solicita {
   background: rgb(0, 214, 132);
   font-weight: bold;
-  color:white;
+  color: white;
 }
-.button-solicita:hover{
-  color:white;
+.button-solicita:hover {
+  color: white;
 }
-
 </style>

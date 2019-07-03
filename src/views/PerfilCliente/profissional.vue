@@ -1,10 +1,17 @@
 <template>
   <div class="profissional">
-    <img src="../../assets/frontendimages/background5.png" data-aos="slide-down" data-aos-duration="1000" alt="" style="position:absolute;top:0;width:auto;height:auto;max-width:100%;z-index:-1">
+    <img
+      src="../../assets/frontendimages/background5.png"
+      data-aos="slide-down"
+      data-aos-duration="1000"
+      alt
+      style="position:absolute;top:0;width:auto;height:auto;max-width:100%;z-index:-1"
+    />
     <!-- BREADCRUMB -->
     <nav
       class="breadcrumb column is-offset-1-desktop is-offset-1-mobile is-offset-1-tablet"
-      aria-label="breadcrumbs" style="font-weight:bold"
+      aria-label="breadcrumbs"
+      style="font-weight:bold"
     >
       <ul>
         <li>
@@ -24,7 +31,10 @@
           </router-link>
         </li>
         <li v-if="this.pro.imagem">
-          <router-link style="color:hsl(171, 100%, 41%)" :to="`/page/cliente/categories/profissionais/${this.pro.imagem.category.id}`">
+          <router-link
+            style="color:hsl(171, 100%, 41%)"
+            :to="`/page/cliente/categories/profissionais/${this.pro.imagem.category.id}`"
+          >
             <span class="icon is-small" style="margin-left:0px">
               <i class="material-icons" aria-hidden="true">people</i>
             </span>
@@ -43,18 +53,22 @@
     </nav>
     <!-- FIM DO BREADCRUMB -->
 
-    <br>
-    <br>
-    <br>
+    <br />
+    <br />
+    <br />
     <div class="column">
       <div class="columns column" v-if="this.pro.imagem">
-        <div class="column is-3-desktop is-3-tablet is-6-mobile is-offset-3-mobile" style="margin-right:30px">
+        <div
+          class="column is-3-desktop is-3-tablet is-6-mobile is-offset-3-mobile"
+          style="margin-right:30px"
+        >
           <div class align="center">
             <img
+              style="height:240px"
               :src="`http://graphql.me/imagem/${this.pro.imagem.imagem}`"
               width="80%"
               alt="conver image"
-            >
+            />
             <div class="title is-5">{{this.pro.imagem.user.name}}</div>
             <div v-if="media !== 0.0 && conta !== 0">
               <div v-if="media === 5">
@@ -62,49 +76,52 @@
                   class="column is-7-desktop is-8-mobile"
                   src="../../assets/estrela5.png"
                   alt="cover image"
-                >
+                />
               </div>
               <div v-if="media >= 4 && media < 5">
                 <img
                   class="column is-7-desktop is-8-mobile"
                   src="../../assets/estrela4.png"
                   alt="cover image"
-                >
+                />
               </div>
               <div v-if="media >= 3 && media < 4">
                 <img
                   class="column is-7-desktop is-8-mobile"
                   src="../../assets/estrela3.png"
                   alt="cover image"
-                >
+                />
               </div>
               <div v-if="media >= 2 && media < 3">
                 <img
                   class="column is-7-desktop is-8-mobile"
                   src="../../assets/estrela2.png"
                   alt="cover image"
-                >
+                />
               </div>
               <div v-if="media < 2">
                 <img
                   class="column is-7-desktop is-8-mobile"
                   src="../../assets/estrela1.png"
                   alt="cover image"
-                >
+                />
               </div>
               <div>{{this.media}} de 5 estrelas ({{this.conta}} avaliações)</div>
             </div>
             <div v-else>Não foi avaliado(a) ainda!</div>
           </div>
         </div>
-        <br>
+        <br />
         <div class="card-footer">
-          <br>
+          <br />
         </div>
         <div class="column is-8-desktop is-9-tablet is-full-mobile">
           <div>
-            <h1 class="title is-2 column is-8-desktop is-10-tablet" style="margin-bottom:-10px">{{this.pro.imagem.user.name}}</h1>
-            <br>
+            <h1
+              class="title is-2 column is-8-desktop is-10-tablet"
+              style="margin-bottom:-10px"
+            >{{this.pro.imagem.user.name}}</h1>
+            <br />
             <div class="column is-12-tablet">
               <b>Pesquena descrição sobre o(a) profissional:</b>
               {{this.pro.imagem.ramo}}
@@ -115,11 +132,11 @@
                 {{this.pro.imagem.category.name}}
               </div>
               <div class="column is-12-tablet is-6-desktop">
-                <b>De onde? </b>
+                <b>De onde?</b>
                 {{this.pro.imagem.cidade}}, {{this.pro.imagem.estado}}
-              </div>  
+              </div>
             </div>
-            <br>
+            <br />
             <!-- 
             <div class="columns column" style="margin-top:-35px">
               <div class="column">
@@ -158,11 +175,11 @@
           </div>
         </div>
       </div>
-      <br>
+      <br />
       <div class="tabs is-centered is-boxed column is-10-desktop is-offset-1-desktop overlay3">
         <ul style="font-size:20pt">
-          <li :class="`${this.active}`" >
-            <a style="color:black"  @click.prevent="showAvalia">Avaliações</a>
+          <li :class="`${this.active}`">
+            <a style="color:black" @click.prevent="showAvalia">Avaliações</a>
           </li>
           <li :class="`${this.noactive}`">
             <a style="color:black" @click.prevent="showPortifolio">Portifólios</a>
@@ -199,7 +216,7 @@
                           class="column is-12-desktop is-6-mobile img"
                           :src="`http://graphql.me/perfilCli/${avaliacoes.user_avalia.imagem}`"
                           alt
-                        >
+                        />
                         <div align="center">{{avaliacoes.user_avalia.user.name}}</div>
                       </div>
                       <div class="column is-9-desktop is-full-mobile">
@@ -215,35 +232,35 @@
                               class="column is-3-desktop is-3-tablet is-3-mobile"
                               src="../../assets/estrela5.png"
                               alt="cover image"
-                            >
+                            />
                           </div>
                           <div v-if="avaliacoes.estrela === 4">
                             <img
                               class="column is-3-desktop is-3-tablet is-3-mobile"
                               src="../../assets/estrela4.png"
                               alt="cover image"
-                            >
+                            />
                           </div>
                           <div v-if="avaliacoes.estrela === 3">
                             <img
                               class="column is-3-desktop is-3-tablet is-3-mobile"
                               src="../../assets/estrela3.png"
                               alt="cover image"
-                            >
+                            />
                           </div>
                           <div v-if="avaliacoes.estrela === 2">
                             <img
                               class="column is-3-desktop is-3-tablet is-3-mobile"
                               src="../../assets/estrela2.png"
                               alt="cover image"
-                            >
+                            />
                           </div>
                           <div v-if="avaliacoes.estrela === 1">
                             <img
                               class="column is-3-desktop is-3-tablet is-3-mobile"
                               src="../../assets/estrela1.png"
                               alt="cover image"
-                            >
+                            />
                           </div>
                           <div style="margin-top:-20px">
                             <div
@@ -265,19 +282,25 @@
                       </div>
                     </div>
                   </div>
-                  <br>
+                  <br />
                   <div
                     class="column is-10-desktop is-offset-1-desktop is-offset-1-tablet card-footer"
                   ></div>
-                </div><br>
+                </div>
+                <br />
                 <!-- FIM DO V-FOR -->
               </div>
               <div v-if="data && data.avaliacaoForAvaliadoId">
-                <div
-                  class="title is-4"
-                  align="center"
-                  v-if="!data.avaliacaoForAvaliadoId[0]"
-                >Ele(a) não foi avaliado ainda!<br><br><br><br><br><br><br></div>
+                <div class="title is-4" align="center" v-if="!data.avaliacaoForAvaliadoId[0]">
+                  Ele(a) não foi avaliado ainda!
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                </div>
               </div>
             </div>
           </template>
@@ -293,7 +316,7 @@
               <div v-if="isLoading">Loading...</div>
               <div v-else>
                 <div v-if="data" class="column is-10-desktop is-offset-1-desktop">
-                  <br>
+                  <br />
                   <div v-for="portifolio of data.portifolioForImagem" :key="portifolio.id">
                     <div class="columns container" style="margin-left:1%">
                       <div class="column is-10-desktop is-10-tablet is-12-mobile is-5-tablet">
@@ -303,7 +326,7 @@
                               :src="`http://graphql.me/portifolio/${portifolio.imagens}`"
                               alt="Placeholder image"
                               width="100%"
-                            >
+                            />
                             <button class="btn1" @click="mudar(portifolio.imagens)">Ver melhor</button>
                           </div>
                           <!-- MOSTRA AS ESTRELAS -->
@@ -323,30 +346,45 @@
                       </div>
                     </div>
                     <div class="card-footer"></div>
-                    <br>
+                    <br />
                   </div>
                 </div>
                 <div v-if="data && data.portifolioForImagem">
-                  <div
-                    class="title is-4"
-                    align="center"
-                    v-if="!data.portifolioForImagem[0]"
-                  >Ele(a) não tem portifolios ainda!<br><br><br><br><br><br><br></div>
+                  <div class="title is-4" align="center" v-if="!data.portifolioForImagem[0]">
+                    Ele(a) não tem portifolios ainda!
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                  </div>
                 </div>
               </div>
             </template>
           </ApolloQuery>
         </div>
       </div>
-      <br><br><br><br>
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
     <div id="modal" class="modal-a">
-      <div :class="`modal ${modal}`" align="center"><br>
-        <button @click="fechar()" style="color:white;z-index:1;position:absolute;top:0;right:0;padding-top:20px;padding-right:40px"><i class="material-icons level-right" style="font-size:40pt">close</i></button><br>
+      <div :class="`modal ${modal}`" align="center">
+        <br />
+        <button
+          @click="fechar()"
+          style="color:white;z-index:1;position:absolute;top:0;right:0;padding-top:20px;padding-right:40px"
+        >
+          <i class="material-icons level-right" style="font-size:40pt">close</i>
+        </button>
+        <br />
         <div class="modal-background a" @click="fechar()"></div>
         <div class="modal-content" style="z-index:1">
           <figure>
-            <img :src="`http://graphql.me/portifolio/${imagem}`" alt="Placeholder image">
+            <img :src="`http://graphql.me/portifolio/${imagem}`" alt="Placeholder image" />
           </figure>
         </div>
       </div>
